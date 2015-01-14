@@ -2,7 +2,11 @@ ThirdWave::Application.routes.draw do
   resources :users
   resources :beans
 
-  root 'pages#index'
+  root 'pages#home'
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/about',   to: 'pages#about',   via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

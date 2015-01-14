@@ -1,0 +1,32 @@
+<header class="navbar navbar-fixed-top navbar-default">
+  <div class="navbar-inner">
+    <div id="navcontainer">
+      <%#= link_to image_tag("freepuntos_logo.png"), root_path, id: "logo" %>
+      <%= link_to "Third Wave", root_path, id: "logo_text" %>
+      <div class="topmargin">
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", root_path%></li>
+          <% if signed_in? %>
+              <% if false %>
+              <li><%= link_to "My Profile", current_user %></li>
+              <% end %>
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Sign out", signout_path, method: "delete" %>
+                  </li>
+                </ul>
+              </li>
+          <% else %>
+              <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

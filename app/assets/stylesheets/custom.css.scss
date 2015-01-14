@@ -1,0 +1,174 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+body {
+  color: #333333;
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+}
+
+section {
+  overflow: auto;
+}
+
+.content {
+  margin-left: 0px !important;
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  /*font-size: 3em;
+  letter-spacing: -2px;*/
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.month-of-posts {
+  margin-bottom: 35px;
+  margin-top: -5px !important;
+}
+
+h3 {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+}
+
+p {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin: 0px 10px 10px 10px;
+  font-size: 1.5em;
+  letter-spacing: -1px;
+  font-weight: bold;
+  width: 1.75em;
+  height: auto;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* nav bad */
+.topmargin {
+  margin-top: 1.5em;
+}
+
+.navbar .nav > li > a {
+  padding: 0 15px 10px;
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  font-weight: 700 !important;
+
+}
+
+ul.nav a:link, a:visited {
+  display: block;
+  //width: 130px;
+  font-weight: bold;
+  text-align: center;
+  //padding: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.activeNav {
+  border-bottom: 3px solid #333333;
+}
+
+.activeNav a {
+  color: #333333 !important;
+}
+
+.hero-unit {
+  margin-top: 5em;
+}
+
+/* footer */
+
+#footer {
+  left: inherit;
+  width: 15%;
+  margin-top: 45px;
+  padding-top: 5px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  a {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: #333333;
+    &:hover {
+      text-decoration: none;
+      color: #333333;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+#navcontainer {
+  width: 940px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 3.5em;
+}
+
+.container {
+  margin-top: 5em;
+}
+
+.words {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  color: #333333;
+  text-align: left;
+  font-size: 30px;
+}
+
+.navbar-fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

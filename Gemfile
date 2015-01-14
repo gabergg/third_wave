@@ -6,6 +6,11 @@ gem 'rails', '4.0.8'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+#Bootstrap
+gem 'bootstrap-sass', '2.3.2.0'
+
+gem 'sprockets', '2.11.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -37,7 +42,7 @@ group :production do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
