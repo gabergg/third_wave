@@ -1,0 +1,33 @@
+<% provide(:title, 'New Bean') %>
+<h1>Add a bean!</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@bean) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name %> 
+
+        <%= f.label :roaster %>
+        <%= f.text_field :roaster %> 
+        
+        <%= f.label :roast %>
+        <%= f.text_field :roast %> 
+        
+        <%= f.label :origin %>
+        <%= f.text_field :origin %> 
+
+        <%= f.label :location %>
+        <%= f.text_field :location %> <br>
+
+        <%= f.label :rating %>
+        <%= f.range_field :rating, :in => 0..5, :step => '.5' %> <br>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %> <br>
+
+        <%= f.submit "Submit Bean", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
