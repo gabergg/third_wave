@@ -1,6 +1,7 @@
+<% provide(:title, 'Beans') %>
 <div class="container">
 
-  <h1>Check Deez Beans Homie!!!!!!!!</h1>
+  <h1>Beans</h1>
 
   <div class="row">
 
@@ -16,7 +17,7 @@
 
         <% @beans.each do |bean| %>
             <tr>
-              <td><%= bean.name %></td>
+              <td><%= link_to bean.name, bean %></td>
               <td><%= bean.roaster %></td>
               <td><%= bean.avg_rating.round(2) %></td>
               <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>

@@ -1,0 +1,5 @@
+<% if @bean_reviews.any? %>
+    <ul class="reviews">
+      <%= render partial: 'shared/user_bean_review', collection: @bean_reviews, :as => :item %>
+    </ul>
+<% end %>

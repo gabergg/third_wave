@@ -15,6 +15,8 @@ class BeansController < ApplicationController
   end
 
   def show
+    @bean = Bean.find(params[:id])
+    @bean_reviews = @bean.reviews
   end
 
   def new
