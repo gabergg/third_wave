@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114030553) do
+ActiveRecord::Schema.define(version: 20150123082852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,19 +22,26 @@ ActiveRecord::Schema.define(version: 20150114030553) do
     t.string   "roast"
     t.string   "origin"
     t.string   "location"
-    t.date     "review_date"
-    t.integer  "rating"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "beans", ["location"], name: "index_beans_on_location", using: :btree
   add_index "beans", ["origin"], name: "index_beans_on_origin", using: :btree
-  add_index "beans", ["rating"], name: "index_beans_on_rating", using: :btree
-  add_index "beans", ["review_date"], name: "index_beans_on_review_date", using: :btree
   add_index "beans", ["roast"], name: "index_beans_on_roast", using: :btree
   add_index "beans", ["roaster"], name: "index_beans_on_roaster", using: :btree
+
+  create_table "reviews", force: true do |t|
+    t.float    "rating"
+    t.string   "brew_method"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "bean_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["rating", "user_id", "bean_id", "created_at"], name: "index_reviews_on_rating_and_user_id_and_bean_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
