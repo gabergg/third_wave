@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   has_many :reviews
+  has_many :beans, :through => :reviews
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
