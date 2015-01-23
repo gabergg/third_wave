@@ -1,6 +1,7 @@
 ThirdWave::Application.routes.draw do
   resources :users
   resources :beans
+  resources :sessions
 
   root 'pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
