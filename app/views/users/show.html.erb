@@ -1,0 +1,20 @@
+<% provide(:title, 'Reviews') %>
+<h1>My Reviews</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+
+  <div class="span8">
+    <% if @user.reviews.any? %>
+        <h3> Reviews </h3>
+        <ul>
+          <%= render @reviews %>
+        </ul>
+    <% end %>
+  </div>
+</div>

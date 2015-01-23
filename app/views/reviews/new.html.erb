@@ -1,0 +1,24 @@
+<% provide(:title, 'New Review') %>
+<h1>Add a Review!</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@review) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :rating %>
+        <%= f.text_field :rating %>
+
+        <%= f.label :brew_method %>
+        <%= f.text_field :brew_method %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %> <br>
+        
+        <%= hidden_field_tag :bean_id, params[:bean_id] %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        
+        <%= f.submit "Submit Review", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

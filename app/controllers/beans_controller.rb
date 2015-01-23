@@ -7,7 +7,7 @@ class BeansController < ApplicationController
   def create
     @bean = Bean.new(bean_params)
     if @bean.save
-      flash[:success] = "Review Submitted"
+      flash[:success] = "Bean Submitted"
       redirect_to beans_path
     else
       render 'new'
@@ -35,7 +35,7 @@ class BeansController < ApplicationController
   private
 
   def bean_params
-    params.require(:bean).permit(:name, :roaster, :origin, :location, :roast, :rating, :description, :review_date)
+    params.require(:bean).permit(:name, :roaster, :origin, :location, :roast)
   end
 
 end

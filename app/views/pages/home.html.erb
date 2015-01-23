@@ -5,6 +5,11 @@
           <section>
             <%= render 'shared/user_info' %>
           </section>
+        </aside>
+        <div class="span8">
+          <h3>My Reviews</h3>
+          <%= render 'shared/user_reviews' %>
+        </div>
       </div>
     </div>
 <% else %>
@@ -16,6 +21,7 @@
           <h2>
             Third Wave is a coffee yumyum by Gabe and Jenn.
           </h2>
+
           <div class="text-center">
             <%= link_to "Sign up now!", signup_path,
                         class: "btn btn-large btn-primary" %>
