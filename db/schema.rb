@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123083457) do
+ActiveRecord::Schema.define(version: 20150123125757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 20150123083457) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "avg_rating"
+    t.float    "avg_rating",  default: 0.0
+    t.integer  "num_ratings", default: 0
   end
 
   add_index "beans", ["location"], name: "index_beans_on_location", using: :btree

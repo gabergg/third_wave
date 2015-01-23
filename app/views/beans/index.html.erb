@@ -18,9 +18,11 @@
             <tr>
               <td><%= bean.name %></td>
               <td><%= bean.roaster %></td>
-              <td><%= bean.avg_rating %></td>
+              <td><%= bean.avg_rating.round(2) %></td>
               <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
-              <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
+              <% if current_user.admin? %>
+                  <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
+              <% end %>
             </tr>
         <% end %>
       </table>
