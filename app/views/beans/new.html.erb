@@ -19,7 +19,7 @@
         <%= f.text_field :origin %> 
 
         <%= f.label :location, "Roaster location" %>
-        <%= f.text_field :location %> <br>
+        <%= f.text_field :location, onchange: "geolocate()", id: "autocomplete", placeholder: "" %> <br>
         
         <%= f.submit "Submit Bean", class: "btn btn-large btn-primary" %>
     <% end %>
