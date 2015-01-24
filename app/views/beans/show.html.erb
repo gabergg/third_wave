@@ -1,15 +1,13 @@
 <% provide(:title, @bean.name) %>
-<div class="container">
-  <h1><%= @bean.name %></h1>
+<h1><%= @bean.name %></h1>
 
-  <div class="row">
+<div class="row">
 
-    <div class="span8">
-      <% if @bean.reviews.any? %>
-          <h3> Reviews </h3>
-          <%= render partial: 'shared/bean_reviews' %>
-      <% end %>
-    </div>
-
+  <div class="span8">
+    <% if @bean.reviews.any? %>
+        <h3> Reviews </h3>
+        <%= render partial: 'shared/bean_reviews' %>
+    <% end %>
   </div>
+
 </div>
