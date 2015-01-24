@@ -1,0 +1,12 @@
+<% provide(:title, @review.bean.name) %>
+<div class="container">
+  <div class="row">
+    <div class="span3">
+      <p><%= @review.rating %></p>
+    </div>
+
+    <div class="span6">
+      <p><%= @review.description %></p>
+    </div>
+  </div>
+</div>

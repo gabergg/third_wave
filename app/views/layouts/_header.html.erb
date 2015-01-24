@@ -6,7 +6,8 @@
       <%= link_to "Third Wave", root_path, id: "logo_text" %>
       <div class="topmargin">
         <ul class="nav pull-right">
-          <li><%= link_to "Dashboard", root_path%></li>
+          <li><%= link_to "Feed", reviews_path%></li>
+          <li><%= link_to "My Dashboard", root_path%></li>
           <li><%= link_to "Beans", beans_path%></li>
           <% if signed_in? %>
               <% if false %>
