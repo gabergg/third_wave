@@ -7,8 +7,10 @@
     <div class="span6 offset3">
       <table>
         <tr>
-          <th>Bean</th>
           <th>Roaster</th>
+          <th>Bean</th>
+          <th>Roast</th>
+          <th>Origin</th>
           <th>Avg Rating</th>
           <th></th>
           <th></th>
@@ -16,8 +18,10 @@
 
         <% @beans.each do |bean| %>
             <tr>
-              <td><%= link_to bean.name, bean %></td>
               <td><%= bean.roaster %></td>
+              <td><%= link_to bean.name, bean %></td>
+              <td><%= bean.roast %></td>
+              <td><%= bean.origin %></td>
               <td><%= bean.avg_rating.round(2) %></td>
               <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
               <% if current_user.admin? %>
@@ -38,11 +42,11 @@
         <%= form_for(@bean) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
-            <%= f.label :name %>
-            <%= f.text_field :name %>
-
             <%= f.label :roaster %>
             <%= f.text_field :roaster %>
+
+            <%= f.label :name %>
+            <%= f.text_field :name %>
 
             <%= f.label :roast %>
             <%= f.text_field :roast %>

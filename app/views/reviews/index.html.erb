@@ -6,6 +6,9 @@
     <table>
       <tr>
         <th>Reviewer</th>
+        <th>Roaster</th>
+        <th>Bean</th>
+        <th>Origin</th>
         <th>Rating</th>
         <th>Description</th>
         <th></th>
@@ -15,6 +18,9 @@
       <% @reviews.each do |review| %>
           <tr>
             <td><%= link_to review.user.name, review.user %></td>
+            <td><%= review.bean.roaster %></td>
+            <td><%= link_to review.bean.name, review.bean %></td>
+            <td><%= review.bean.origin %></td>
             <td><%= review.rating %></td>
             <td><%= review.description %></td>
             <td><%= link_to "Full review", review %></td>
