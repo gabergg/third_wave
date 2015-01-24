@@ -1,0 +1,17 @@
+<% provide(:title, 'Feed') %>
+<h1>The Ol' Bean Feed</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <% @reviews.each do |review| %>
+        <tr>
+          <td><%= link_to review.user.name, review %></td>
+          <td><%= bean.roaster %></td>
+          <td><%= bean.avg_rating.round(2) %></td>
+          <% if current_user.admin? %>
+              <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
+          <% end %>
+        </tr>
+    <% end %>
+  </div>
+</div>
