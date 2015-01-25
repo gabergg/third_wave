@@ -18,7 +18,7 @@
 
         <% @beans.each do |bean| %>
             <tr>
-              <td><%= bean.roaster %></td>
+              <td><%= bean.roaster.name if bean.roaster %></td>
               <td><%= link_to bean.name, bean %></td>
               <td><%= bean.roast %></td>
               <td><%= bean.origin %></td>
@@ -33,8 +33,6 @@
 
       <br>
 
-      <%#= link_to "Add a bean", new_bean_path,
-                  class: "btn btn-small btn-primary" %>
       <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
                   class: "btn btn-small btn-primary" %>
 
@@ -42,8 +40,8 @@
         <%= form_for(@bean) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
-            <%#= f.label :roaster %>
-            <%#= f.text_field :roaster %>
+            <%= f.label :roaster_name %>
+            <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'} %>
 
             <%= f.label :name %>
             <%= f.text_field :name %>
@@ -53,6 +51,7 @@
 
             <%= f.label :origin %>
             <%= f.text_field :origin %>
+            <br>
 
             <%= f.submit "Submit Bean", class: "btn btn-large btn-primary" %>
         <% end %>
@@ -61,4 +60,4 @@
 
   </div>
 
-<script>initialize()</script>
+<script>init_auto_roaster()</script>

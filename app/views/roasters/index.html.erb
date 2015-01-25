@@ -41,7 +41,7 @@
           <%= f.text_field :name %>
 
           <%= f.label :location %>
-          <%= f.text_field :location, onchange: "geolocate()", id: "autocomplete", placeholder: "" %> <br>
+          <%= f.text_field :location, onchange: "geolocate()", id: "autocomplete_location", placeholder: "" %> <br>
 
           <%= f.label :description %>
           <%= f.text_field :description %>
@@ -53,4 +53,4 @@
 
 </div>
 
-<script>initialize()</script>
+<script>init_auto_location()</script>

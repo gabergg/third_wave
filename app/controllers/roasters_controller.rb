@@ -33,6 +33,11 @@ class RoastersController < ApplicationController
 
   def edit
   end
+  
+  def autocomplete_index
+    @roasters = Roaster.order(:name).where("name ilike ?", "%#{params[:term]}%")
+    render json: @roasters.map(&:name)
+  end
 
   private
 

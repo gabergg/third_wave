@@ -3,6 +3,10 @@ class BeansController < ApplicationController
   def index
     @beans = Bean.all
     @bean = Bean.new
+=begin
+    @roasters = Category.order(:name).where("name like ?", "%#{params[:term]}%")
+    render json: @roasters.map(&:name)
+=end
   end
 
   def create
@@ -34,11 +38,19 @@ class BeansController < ApplicationController
 
   def edit
   end
+  
+  def roaster_name
+    roaster.try(:name)
+  end
+
+  def roaster_name=(name)
+    self.roaster = Roaster.find_by_name(name) if name.present?
+  end
 
   private
 
   def bean_params
-    params.require(:bean).permit(:name, :roaster, :origin, :location, :roast)
+    params.require(:bean).permit(:roaster_name, :name, :origin, :roast)
   end
 
 end

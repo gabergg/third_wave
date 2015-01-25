@@ -1,10 +1,10 @@
 var autocomplete;
 
-function initialize() {
+function init_auto_location() {
     // Create the autocomplete object, restricting the search
     // to geographical location types.
     autocomplete = new google.maps.places.Autocomplete(
-        /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+        /** @type {HTMLInputElement} */(document.getElementById('autocomplete_location')),
         { types: ['geocode'] });
 }
 
@@ -22,4 +22,10 @@ function geolocate() {
             autocomplete.setBounds(circle.getBounds());
         });
     }
+}
+
+function init_auto_roaster() {
+    $("#bean_roaster_name").autocomplete({
+        source: $("#bean_roaster_name").data('autocomplete-roaster-source')
+    });
 }
