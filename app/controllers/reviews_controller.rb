@@ -14,6 +14,9 @@ class ReviewsController < ApplicationController
       @bean = Bean.find_by(id: @review[:bean_id])
       @bean.update(num_ratings: @bean.num_ratings + 1)
       @bean.update(avg_rating: (@bean.avg_rating + @review.rating)/@bean.num_ratings)
+      @roaster = Roaster.find_by(id: @bean[:roaster_id])
+      @roaster.update(num_ratings: @roaster.num_ratings + 1)
+      @roaster.update(avg_rating: (@roaster.avg_rating + @review.rating)/@roaster.num_ratings)
       redirect_to beans_path
     else
       render 'new'
