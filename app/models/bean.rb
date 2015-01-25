@@ -13,7 +13,7 @@ class Bean < ActiveRecord::Base
   end
   
   def roaster_name=(name)
-    self.roaster = Roaster.find_by(name: name) if name.present?
+    self.roaster = Roaster.find_or_create_by(name: name) if name.present?
   end
   
 =begin
