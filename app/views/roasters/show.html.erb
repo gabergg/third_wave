@@ -6,7 +6,7 @@
   <div class="span8">
     <% if @roaster.beans.any? %>
         <h3> Beans </h3>
-        <%= @roaster.beans %>
+        <%= render partial: 'shared/roaster_beans' %>
     <% end %>
   </div>
 

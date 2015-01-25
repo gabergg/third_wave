@@ -17,6 +17,7 @@ class RoastersController < ApplicationController
 
   def show
     @roaster = Roaster.find(params[:id])
+    @roaster_beans = @roaster.beans
   end
 
   def new
