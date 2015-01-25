@@ -18,7 +18,7 @@
 
         <% @beans.each do |bean| %>
             <tr>
-              <td><%= bean.roaster.name if bean.roaster %></td>
+              <td><%= link_to bean.roaster.name, bean.roaster %></td>
               <td><%= link_to bean.name, bean %></td>
               <td><%= bean.roast %></td>
               <td><%= bean.origin %></td>

@@ -7,15 +7,9 @@ class Bean < ActiveRecord::Base
 
   validates :name, presence: true
   #validates :roaster_id, presence: true
-  
-=begin
-  def roaster_name
-    roaster.try(:name)
-  end
-=end
 
   def roaster_name
-    self.roaster.try(:id)
+    roaster.try(:name)
   end
   
   def roaster_name=(name)
