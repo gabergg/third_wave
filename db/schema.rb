@@ -11,27 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123125757) do
+ActiveRecord::Schema.define(version: 20150125062656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "beans", force: true do |t|
     t.string   "name"
-    t.string   "roaster"
     t.string   "roast"
     t.string   "origin"
-    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "avg_rating",  default: 0.0
     t.integer  "num_ratings", default: 0
+    t.integer  "roaster_id"
   end
 
-  add_index "beans", ["location"], name: "index_beans_on_location", using: :btree
   add_index "beans", ["origin"], name: "index_beans_on_origin", using: :btree
   add_index "beans", ["roast"], name: "index_beans_on_roast", using: :btree
-  add_index "beans", ["roaster"], name: "index_beans_on_roaster", using: :btree
 
   create_table "reviews", force: true do |t|
     t.float    "rating"
@@ -44,6 +41,19 @@ ActiveRecord::Schema.define(version: 20150123125757) do
   end
 
   add_index "reviews", ["rating", "user_id", "bean_id", "created_at"], name: "index_reviews_on_rating_and_user_id_and_bean_id_and_created_at", using: :btree
+
+  create_table "roasters", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.float    "avg_rating"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roasters", ["avg_rating"], name: "index_roasters_on_avg_rating", using: :btree
+  add_index "roasters", ["location"], name: "index_roasters_on_location", using: :btree
+  add_index "roasters", ["name"], name: "index_roasters_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
