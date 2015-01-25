@@ -1,63 +1,65 @@
 <% provide(:title, 'Beans') %>
 
-  <h1>Beans</h1>
+<h1>Beans</h1>
 
-  <div class="row">
+<div class="row">
 
-    <div class="span6 offset3">
-      <table>
-        <tr>
-          <th>Roaster</th>
-          <th>Bean</th>
-          <th>Roast</th>
-          <th>Origin</th>
-          <th>Avg Rating</th>
-          <th></th>
-          <th></th>
-        </tr>
+  <div class="span6 offset3">
+    <table>
+      <tr>
+        <th>Roaster</th>
+        <th>Bean</th>
+        <th>Roast</th>
+        <th>Origin</th>
+        <th>Avg Rating</th>
+        <th></th>
+        <th></th>
+      </tr>
 
-        <% @beans.each do |bean| %>
-            <tr>
-              <td><%= link_to bean.roaster.name, bean.roaster %></td>
-              <td><%= link_to bean.name, bean %></td>
-              <td><%= bean.roast %></td>
-              <td><%= bean.origin %></td>
-              <td><%= bean.avg_rating.round(2) %></td>
-              <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
-              <% if current_user && current_user.admin? %>
-                  <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
-              <% end %>
-            </tr>
-        <% end %>
-      </table>
+      <% @beans.each do |bean| %>
+          <tr>
+            <td><%= link_to bean.roaster.name, bean.roaster %></td>
+            <td><%= link_to bean.name, bean %></td>
+            <td><%= bean.roast %></td>
+            <td><%= bean.origin %></td>
+            <td><%= bean.avg_rating.round(2) %></td>
+            <% if signed_in? %>
+                <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
+            <% end %>
+            <% if current_user && current_user.admin? %>
+                <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
 
-      <br>
+    <br>
 
-      <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
-                  class: "btn btn-small btn-primary" %>
+    <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
+                   class: "btn btn-small btn-primary" %>
 
-      <div id="new-bean-form" style="display: none;">
-        <%= form_for(@bean) do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
+    <div id="new-bean-form" style="display: none;">
+      <%= form_for(@bean) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
 
-            <%= f.label :roaster_name %>
-            <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'} %>
+          <%= f.label :roaster_name %>
+          <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'} %>
 
-            <%= f.label :name %>
-            <%= f.text_field :name %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
 
-            <%= f.label :roast %>
-            <%= f.text_field :roast %>
+          <%= f.label :roast %>
+          <%= f.text_field :roast %>
 
-            <%= f.label :origin %>
-            <%= f.text_field :origin %>
-            <br>
+          <%= f.label :origin %>
+          <%= f.text_field :origin %>
+          <br>
 
-            <%= f.submit "Submit Bean", class: "btn btn-large btn-primary" %>
-        <% end %>
-      </div>
+          <%= f.submit "Submit Bean", class: "btn btn-large btn-primary" %>
+      <% end %>
     </div>
-
   </div>
+
+</div>
 
 <script>init_auto_roaster()</script>
