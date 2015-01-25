@@ -50,7 +50,7 @@ class BeansController < ApplicationController
   private
 
   def bean_params
-    params.require(:bean).permit(:roaster_name, :name, :origin, :roast)
+    params.require(:bean).permit(:roaster_name, :roaster_id, :name, :origin, :roast)
   end
 
 end
