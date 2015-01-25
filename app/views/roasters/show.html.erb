@@ -1,0 +1,13 @@
+<% provide(:title, @roaster.name) %>
+<h1><%= @roaster.name %></h1>
+
+<div class="row">
+
+  <div class="span8">
+    <% if @roaster.beans.any? %>
+        <h3> Beans </h3>
+        <%= @roaster.beans %>
+    <% end %>
+  </div>
+
+</div>

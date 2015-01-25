@@ -1,6 +1,7 @@
 ThirdWave::Application.routes.draw do
   resources :users
   resources :beans
+  resources :roasters
   resources :reviews
   resources :sessions
 

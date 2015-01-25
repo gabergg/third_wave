@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125062656) do
+ActiveRecord::Schema.define(version: 20150125064410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,11 @@ ActiveRecord::Schema.define(version: 20150125062656) do
   create_table "roasters", force: true do |t|
     t.string   "name"
     t.string   "location"
-    t.float    "avg_rating"
+    t.float    "avg_rating",  default: 0.0
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "num_ratings", default: 0
   end
 
   add_index "roasters", ["avg_rating"], name: "index_roasters_on_avg_rating", using: :btree

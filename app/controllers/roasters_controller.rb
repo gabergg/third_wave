@@ -2,6 +2,7 @@ class RoastersController < ApplicationController
 
   def index
     @roasters = Roaster.all
+    @roaster = Roaster.new
   end
 
   def create
@@ -35,8 +36,8 @@ class RoastersController < ApplicationController
 
   private
 
-  def bean_params
-    params.require(:roaster.permit(:name, :location, :description))
+  def roaster_params
+    params.require(:roaster).permit(:name, :location, :description)
   end
 
 end
