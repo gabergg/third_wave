@@ -24,7 +24,7 @@
               <td><%= bean.origin %></td>
               <td><%= bean.avg_rating.round(2) %></td>
               <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
-              <% if current_user.admin? %>
+              <% if current_user && current_user.admin? %>
                   <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
               <% end %>
             </tr>

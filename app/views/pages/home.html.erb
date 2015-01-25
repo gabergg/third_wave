@@ -11,20 +11,16 @@
       </div>
     </div>
 <% else %>
-    <div class="row-fluid">
+    <div class="row">
       <div class="text-center">
-        <div class="words">
-          <h1>Welcome to Third Wave!</h1>
+        <h1>Welcome to Third Wave!</h1>
 
-          <h2>
-            Third Wave is a coffee yumyum by Gabe and Jenn.
-          </h2>
+        <h2>
+          Third Wave is a coffee yumyum by Gabe and Jenn.
+        </h2>
 
-          <div class="text-center">
-            <%= link_to "Sign up now!", signup_path,
-                        class: "btn btn-large btn-primary" %>
-          </div>
-        </div>
+        <%= link_to "Sign up now!", signup_path,
+                    class: "btn btn-large btn-primary" %>
       </div>
     </div>
 <% end %>

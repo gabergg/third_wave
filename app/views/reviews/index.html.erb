@@ -24,7 +24,7 @@
             <td><%= review.rating %></td>
             <td><%= review.description %></td>
             <td><%= link_to "Full review", review %></td>
-            <% if current_user.admin? %>
+            <% if current_user && current_user.admin? %>
                 <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
             <% end %>
           </tr>
