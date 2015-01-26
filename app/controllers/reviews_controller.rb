@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:success] = "Review Submitted"
-      unless @review.rating == 0
+      unless @review.rating == "None"
         @bean = Bean.find_by(id: @review[:bean_id])
         @bean.update(num_ratings: @bean.num_ratings + 1)
         @bean.update(avg_rating: (@bean.avg_rating + @review.rating)/@bean.num_ratings)
