@@ -8,15 +8,17 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review[:bean_id] = params[:bean_id]
     @review[:user_id] = params[:user_id]
-    
+
     if @review.save
       flash[:success] = "Review Submitted"
-      @bean = Bean.find_by(id: @review[:bean_id])
-      @bean.update(num_ratings: @bean.num_ratings + 1)
-      @bean.update(avg_rating: (@bean.avg_rating + @review.rating)/@bean.num_ratings)
-      @roaster = Roaster.find_by(id: @bean[:roaster_id])
-      @roaster.update(num_ratings: @roaster.num_ratings + 1)
-      @roaster.update(avg_rating: (@roaster.avg_rating + @review.rating)/@roaster.num_ratings)
+      unless @review.rating == 0
+        @bean = Bean.find_by(id: @review[:bean_id])
+        @bean.update(num_ratings: @bean.num_ratings + 1)
+        @bean.update(avg_rating: (@bean.avg_rating + @review.rating)/@bean.num_ratings)
+        @roaster = Roaster.find_by(id: @bean[:roaster_id])
+        @roaster.update(num_ratings: @roaster.num_ratings + 1)
+        @roaster.update(avg_rating: (@roaster.avg_rating + @review.rating)/@roaster.num_ratings)
+      end
       redirect_to beans_path
     else
       render 'new'
@@ -39,7 +41,7 @@ class ReviewsController < ApplicationController
 
   def edit
   end
-  
+
   private
 
   def review_params
