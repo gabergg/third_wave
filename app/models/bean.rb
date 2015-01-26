@@ -15,6 +15,14 @@ class Bean < ActiveRecord::Base
   def roaster_name=(name)
     self.roaster = Roaster.find_or_create_by(name: name) if name.present?
   end
+
+  def avg_rating
+    if self[:avg_rating] == 0
+      "None"
+    else
+      self[:avg_rating]
+    end
+  end
   
 =begin
   def roaster_name=(name)

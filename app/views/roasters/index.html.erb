@@ -19,7 +19,7 @@
           <tr>
             <td><%= link_to roaster.name, roaster %></td>
             <td><%= roaster.location %></td>
-            <td><%= roaster.avg_rating.round(2) %></td>
+            <td><%= roaster.avg_rating != "None" ? roaster.avg_rating.round(2) : "None" %></td>
             <td><%= roaster.description %></td>
             <% if current_user && current_user.admin? %>
                 <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>

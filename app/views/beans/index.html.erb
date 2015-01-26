@@ -22,7 +22,7 @@
             <td><%= link_to bean.name, bean %></td>
             <td><%= bean.roast %></td>
             <td><%= bean.origin %></td>
-            <td><%= bean.avg_rating.round(2) %></td>
+            <td><%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></td>
             <% if signed_in? %>
                 <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
             <% end %>

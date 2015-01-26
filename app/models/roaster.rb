@@ -4,4 +4,12 @@ class Roaster < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def avg_rating
+    if self[:avg_rating] == 0
+      "None"
+    else
+      self[:avg_rating]
+    end
+  end
+
 end
