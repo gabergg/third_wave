@@ -7,6 +7,7 @@ ThirdWave::Application.routes.draw do
 
   root 'pages#home'
   match '/roastersearch', to: 'roasters#autocomplete_index', via: 'get'
+  match '/completesearch', to: 'pages#autocomplete', via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

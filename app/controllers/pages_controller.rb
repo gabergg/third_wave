@@ -7,5 +7,9 @@ class PagesController < ApplicationController
     end
 
   end
+  
+  def autocomplete
+    
+  end
 
 end
