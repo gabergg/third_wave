@@ -1,4 +1,8 @@
-<h1>Search Results!</h1>
+<% if @roasters.empty? && @beans.empty? && @users.empty? %>
+    <h1>No Search Results</h1>
+<% else %>
+    <h1>Search Results:</h1>
+<% end %>
 
 <% if @roasters.any? %>
     <h2> Roasters </h2>

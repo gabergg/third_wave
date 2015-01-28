@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
 
     render json: @beans.concat(@roasters.concat(@users))
-    
+
   end
 
   def complete_search
@@ -26,6 +26,7 @@ class PagesController < ApplicationController
     @beans = Bean.name_like(params[:search])
     @roasters = Roaster.name_like(params[:search])
     @users = User.name_like(params[:search])
+
     unless params[:search].nil? || params[:search].empty?
       render 'shared/search_results'
     else
