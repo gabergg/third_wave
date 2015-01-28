@@ -4,36 +4,35 @@
 
 <div class="row">
 
-  <div class="span6 offset3">
-    <table>
-      <tr>
-        <th>Roaster</th>
-        <th>Bean</th>
-        <th>Roast</th>
-        <th>Origin</th>
-        <th>Avg Rating</th>
-        <th></th>
-        <th></th>
-      </tr>
-
+  
+  <div class="span8 offset3">
       <% @beans.each do |bean| %>
-          <tr>
-            <td><%= link_to bean.roaster.name, bean.roaster %></td>
-            <td><%= link_to bean.name, bean %></td>
-            <td><%= bean.roast %></td>
-            <td><%= bean.origin %></td>
-            <td><%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></td>
-            <% if signed_in? %>
-                <td><%= link_to "Rate", new_review_path(:bean_id => bean.id) %></td>
-            <% end %>
-            <% if current_user && current_user.admin? %>
-                <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
-            <% end %>
-          </tr>
+        <div class="eachbean">
+          <div class="row-fluid">
+            <div class="span3">
+              <%= image_tag "placeholder.png" %>
+            </div>
+            <div class="span5">
+              <span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span><br>
+              <span class="bean"><%= link_to bean.name, bean %></span><br><br>
+              <span class="roast"><%= bean.roast %></span><br>
+              <span class="origin">  <%= bean.origin %></span><br>
+              <span class="rating"><%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
+              <span class="rate_button">
+                <% if signed_in? %>
+                    <%= link_to "Rate", new_review_path(:bean_id => bean.id) %>
+                <% end %>
+              </span><br>
+                <% if current_user && current_user.admin? %>
+                    <%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %>
+                <% end %>
+            </div>
+          </div> 
+        </div>
       <% end %>
-    </table>
+   
 
-    <br>
+    
 
     <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
                    class: "btn btn-small btn-primary" %>
