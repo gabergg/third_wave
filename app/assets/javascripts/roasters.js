@@ -28,4 +28,5 @@ function init_auto_roaster() {
     $("#bean_roaster_name").autocomplete({
         source: $("#bean_roaster_name").data('autocomplete-roaster-source')
     });
+    
 }
