@@ -1,5 +1,5 @@
 class Roaster < ActiveRecord::Base
-  
+
   has_many :beans
 
   validates :name, presence: true
@@ -10,6 +10,10 @@ class Roaster < ActiveRecord::Base
     else
       self[:avg_rating]
     end
+  end
+
+  def avg_rating_num
+    self[:avg_rating]
   end
 
   scope :name_like, -> (name) { where("name ilike ?", "%#{name}%") }
