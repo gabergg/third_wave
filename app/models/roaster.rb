@@ -12,4 +12,6 @@ class Roaster < ActiveRecord::Base
     end
   end
 
+  scope :name_like, -> (name) { where("name ilike ?", "%#{name}%") }
+
 end

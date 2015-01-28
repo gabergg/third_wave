@@ -9,7 +9,10 @@ class PagesController < ApplicationController
   end
   
   def autocomplete
-    
+    @beans = Bean.name_like(params[:search])
+    @roasters = Roaster.name_like(params[:search])
+    @users = User.name_like(params[:search])
+    render 'shared/search_results'
   end
 
 end

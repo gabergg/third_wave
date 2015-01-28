@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  scope :name_like, -> (name) { where("name ilike ?", "%#{name}%") }
+
   private
 
   def create_remember_token

@@ -23,6 +23,8 @@ class Bean < ActiveRecord::Base
       self[:avg_rating]
     end
   end
+
+  scope :name_like, -> (name) { where("name ilike ?", "%#{name}%") }
   
 =begin
   def roaster_name=(name)
