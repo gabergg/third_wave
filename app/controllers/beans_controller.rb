@@ -6,12 +6,17 @@ class BeansController < ApplicationController
   end
 
   def create
+    @beans = Bean.paginate(page: params[:page],order: 'avg_rating DESC')
     @bean = Bean.new(bean_params)
     if @bean.save
       flash[:success] = "Bean Submitted"
       redirect_to beans_path
     else
-      redirect_to beans_path
+      respond_to do |format|
+        format.html { render action: "index" }
+        format.json { render json: @bean.errors, status: :unprocessable_entity }
+        format.js {}
+      end
     end
   end
 
