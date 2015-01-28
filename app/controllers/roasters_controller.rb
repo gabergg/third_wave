@@ -1,7 +1,7 @@
 class RoastersController < ApplicationController
 
   def index
-    @roasters = Roaster.paginate(page: params[:page])
+    @roasters = Roaster.paginate(page: params[:page],order: 'name ASC')
     @roaster = Roaster.new
   end
 

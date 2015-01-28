@@ -1,7 +1,7 @@
 class BeansController < ApplicationController
 
   def index
-    @beans = Bean.paginate(page: params[:page])
+    @beans = Bean.paginate(page: params[:page],order: 'avg_rating DESC')
     @bean = Bean.new
   end
 
