@@ -15,5 +15,7 @@ class Review < ActiveRecord::Base
       self[:rating]
     end
   end
+
+  WillPaginate.per_page = 10
   
 end

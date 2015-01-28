@@ -1,7 +1,7 @@
 class BeansController < ApplicationController
 
   def index
-    @beans = Bean.all
+    @beans = Bean.paginate(page: params[:page])
     @bean = Bean.new
   end
 
