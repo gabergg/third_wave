@@ -3,6 +3,6 @@
 <%#= f.text_field :query_param, data: {autocomplete_roaster_source: '/roastersearch'} %>
 
 <%= form_tag('/completesearch', :method => "get", id: "complete-search-form") do %>
-    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch'}, placeholder: "Search bean, roaster, user" %>
+    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search bean, roaster, user" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>

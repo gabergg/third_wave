@@ -26,7 +26,7 @@ class PagesController < ApplicationController
     @beans = Bean.name_like(params[:search])
     @roasters = Roaster.name_like(params[:search])
     @users = User.name_like(params[:search])
-    unless params[:term].nil? || params[:term].empty?
+    unless params[:search].nil? || params[:search].empty?
       render 'shared/search_results'
     else
       render 'shared/no_search_params'
