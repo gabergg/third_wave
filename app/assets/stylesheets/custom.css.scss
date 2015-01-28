@@ -13,6 +13,10 @@
 body {
   color: #333333;
   font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  background-image: url(/assets/background.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 section {
@@ -39,6 +43,7 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
 }
+
 
 h2 {
   font-family: 'Vollkorn', Georgia, Times, serif;
@@ -104,7 +109,7 @@ ul.nav a:link, a:visited {
 }
 
 .activeNav {
-  border-bottom: 3px solid #333333;
+ border-bottom: 3px solid #333333;
 }
 
 .activeNav a {
@@ -154,7 +159,16 @@ ul.nav a:link, a:visited {
 }
 
 .container {
+  width: 75%;
+  background: #fff;
   margin-top: 5em;
+  padding-top: 2em;
+  margin-bottom: 5em;
+  min-height: 600px;
+  height: 100%;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  padding-bottom: 2em;
 }
 
 .words {
@@ -171,4 +185,80 @@ ul.nav a:link, a:visited {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+.roaster a:link, .roaster a:active,{
+  font-weight: bold;
+  display:inline-block;
+  text-decoration: none;
+  font-size:18px;
+  margin-top:15px;
+  color: #8B572A;
+}
+.roaster a:visited{
+  font-weight: bold;
+  display:inline-block;
+  text-decoration: none;
+  font-size:18px;
+  margin-top:15px;
+  color: #503218;
+}
+
+/* mouse over link */
+.roaster a:hover {
+  color: #503218;
+}
+
+.bean a:link, .bean a:active {
+  display: inline-block;
+  font-size:20px;
+  margin-top:15px;
+  color: #8B572A;
+}
+.bean a:visited, a:hover {
+  display: inline-block;
+  font-size:20px;
+  margin-top:15px;
+  color: #8B572A;
+}
+.roast, .origin, .rating{
+  margin-top:10px;
+  display: inline-block;
+  border:2px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  width: 100%;
+}
+
+.rate_button{
+  text-decoration: none;
+  font-color: #8B572A;
+  margin-top:15px;
+  display: inline-block;
+}
+.eachbean {
+  margin-top: 2em;
+  border-radius: 10px;
+  border-bottom: 2px solid rgba(204, 204, 204, .7);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */;
+  padding: 16px;
+
+  background-color: #fff;
+
+}
+.add_bean{
+  display:inline-block;
+  vertical-align: bottom;
+  padding-top:10px;
+
+}
+.bean_heading{
+  display:inline;
+}
+.plus_sign{
+  border-radius: 50%;
 }

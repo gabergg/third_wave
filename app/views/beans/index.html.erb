@@ -1,6 +1,11 @@
 <% provide(:title, 'Beans') %>
+<div class="row-fluid">
+<div class="text-center span3 offset4"><h1 class="beanheading">Beans</h1></div><span class="add_bean span2 offset1">
+<%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
+                   class: "btn" do %><i style="border-radius: 40px;"class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
 
-<h1>Beans</h1>
+</div>
+
 
 <div class="row">
 
@@ -33,11 +38,6 @@
         </div>
       <% end %>
    
-
-    
-
-    <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
-                   class: "btn btn-small btn-primary" %>
 
     <div id="new-bean-form" style="display: none;">
       <%= form_for(@bean) do |f| %>
