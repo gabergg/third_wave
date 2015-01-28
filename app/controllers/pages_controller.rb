@@ -11,9 +11,9 @@ class PagesController < ApplicationController
   def autocomplete
 
     #@beans = Bean.name_like(params[:term]).map(&:name)
-    @beans = Bean.name_like(params[:term]).collect{ |bean| Hash["label", bean.name, "category", "Beans"]}
-    @roasters = Roaster.name_like(params[:term]).collect{ |roaster| Hash["label", roaster.name, "category", "Roasters"]}
-    @users = User.name_like(params[:term]).collect{ |user| Hash["label", user.name, "category", "Users"]}
+    @beans = Bean.name_like(params[:term]).collect{ |bean| Hash["label", bean.name, "category", "Beans", "url", bean_path(bean.id)]}
+    @roasters = Roaster.name_like(params[:term]).collect{ |roaster| Hash["label", roaster.name, "category", "Roasters", "url", roaster_path(roaster.id)]}
+    @users = User.name_like(params[:term]).collect{ |user| Hash["label", user.name, "category", "Users", "url", user_path(user.id)]}
 
     render json: @beans.concat(@roasters.concat(@users))
 
