@@ -12,12 +12,14 @@
             <div class="span3">
               <%= image_tag "placeholder.png" %>
             </div>
-            <div class="span5">
-              <span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span><br>
-              <span class="bean"><%= link_to bean.name, bean %></span><br><br>
-              <span class="roast"><%= bean.roast %></span><br>
-              <span class="origin">  <%= bean.origin %></span><br>
-              <span class="rating"><%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
+            <div class="span3">
+              <span class="bean"><%= link_to bean.name, bean %></span><br>
+              <span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span>
+            </div>
+            <div class="span3">
+              <span class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
+              <span class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
+              <span class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
               <span class="rate_button">
                 <% if signed_in? %>
                     <%= link_to "Rate", new_review_path(:bean_id => bean.id) %>
