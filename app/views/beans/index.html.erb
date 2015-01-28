@@ -2,15 +2,13 @@
 <div class="row-fluid">
 <div class="text-center span3 offset4"><h1 class="beanheading">Beans</h1></div><span class="add_bean span2 offset1">
 <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
-                   class: "btn" do %><i style="border-radius: 40px;"class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
+                   class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
 
 </div>
 
 
 <div class="row">
-
-  
-  <div class="span8 offset3">
+  <div class="span8 offset2">
       <% @beans.each do |bean| %>
         <div class="eachbean">
           <div class="row-fluid">
@@ -21,7 +19,7 @@
               <span class="bean"><%= link_to bean.name, bean %></span><br>
               <span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span>
             </div>
-            <div class="span3">
+            <div class="span3 offset1">
               <span class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
               <span class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
               <span class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
