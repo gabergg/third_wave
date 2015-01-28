@@ -11,7 +11,7 @@ class BeansController < ApplicationController
       flash[:success] = "Bean Submitted"
       redirect_to beans_path
     else
-      render 'new'
+      redirect_to beans_path
     end
   end
 

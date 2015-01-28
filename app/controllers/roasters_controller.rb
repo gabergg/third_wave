@@ -11,7 +11,7 @@ class RoastersController < ApplicationController
       flash[:success] = "Roaster Submitted"
       redirect_to roasters_path
     else
-      render 'new'
+      redirect_to roasters_path
     end
   end
 

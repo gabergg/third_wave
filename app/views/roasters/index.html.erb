@@ -4,7 +4,7 @@
 
 <div class="row">
 
-  <div class="span6 offset3">
+  <div class="span6 offset1">
     <table>
       <tr>
         <th>Name</th>
@@ -29,28 +29,14 @@
     </table>
     <%= will_paginate @roasters %>
 
-    <br>
+  </div>
+  <div class="span4">
 
     <%= button_tag "Add a roaster", type: "button", onclick: "$('#new-roaster-form').toggle()",
                    class: "btn btn-small btn-primary" %>
 
-    <div id="new-roaster-form" style="display: none;">
-      <%= form_for(@roaster) do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
+    <%= render 'shared/new_roaster_form' %>
 
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-
-          <%= f.label :location %>
-          <%= f.text_field :location, onchange: "geolocate()", id: "autocomplete_location", placeholder: "" %> <br>
-
-          <%= f.label :description %>
-          <%= f.text_field :description %>
-          <br>
-
-          <%= f.submit "Submit Roaster", class: "btn btn-large btn-primary" %>
-      <% end %>
-    </div>
   </div>
 
 </div>
