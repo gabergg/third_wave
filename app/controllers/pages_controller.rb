@@ -7,12 +7,16 @@ class PagesController < ApplicationController
     end
 
   end
-  
+
   def autocomplete
-    @beans = Bean.name_like(params[:search])
-    @roasters = Roaster.name_like(params[:search])
-    @users = User.name_like(params[:search])
-    render 'shared/search_results'
+    unless params[:search].nil? || params[:search].empty?
+      @beans = Bean.name_like(params[:search])
+      @roasters = Roaster.name_like(params[:search])
+      @users = User.name_like(params[:search])
+      render 'shared/search_results'
+    else
+      render 'shared/no_search_params'
+    end
   end
 
 end
