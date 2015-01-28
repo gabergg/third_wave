@@ -21,7 +21,6 @@ class BeansController < ApplicationController
   end
 
   def new
-    @bean = Bean.new
   end
 
   def destroy
