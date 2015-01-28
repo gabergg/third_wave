@@ -2,16 +2,16 @@
 <div class="container">
   <div class="row">
     <div class="span3">
-      <p>Bean: <%= @review.bean.name %></p>
+      <p>Bean: <%= link_to @review.bean.name, @review.bean %></p>
     </div>
 
     <div class="span6">
       <ul>
-        <li>Roaster: <%= @review.bean.roaster.name %></li>
+        <li>Roaster: <%= link_to @review.bean.roaster.name, @review.bean.roaster %></li>
         <li>Origin: <%= @review.bean.origin %></li>
         <li>Rating: <%= @review.rating %></li>
         <li>Description: <%= @review.description %></li>
-        <li>Submitted by: <%= @review.user.name %></li>
+        <li>Submitted by: <%= link_to @review.user.name, @review.user %></li>
       </ul>
     </div>
   </div>
