@@ -1,17 +1,17 @@
 <% provide(:title, 'Reviews') %>
-<h1>My Reviews</h1>
+<% if @user == current_user %>
+    <h1>My Reviews</h1>
+<% else %>
+    <h1><%= @user.name %>'s Reviews</h1>
+<% end %>
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
     </section>
   </aside>
 
   <div class="span8">
     <% if @user.reviews.any? %>
-        <h3> Reviews </h3>
         <%= render partial: 'shared/user_reviews' %>
     <% end %>
   </div>

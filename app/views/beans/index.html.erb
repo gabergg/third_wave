@@ -6,7 +6,6 @@
 
 </div>
 
-
 <div class="row">
   <div class="span8 offset2">
       <% @beans.each do |bean| %>
@@ -35,28 +34,9 @@
           </div> 
         </div>
       <% end %>
-   
 
-    <div id="new-bean-form" style="display: none;">
-      <%= form_for(@bean) do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
-
-          <%= f.label :roaster_name %>
-          <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'} %>
-
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-
-          <%= f.label :roast %>
-          <%= f.text_field :roast %>
-
-          <%= f.label :origin %>
-          <%= f.text_field :origin %>
-          <br>
-
-          <%= f.submit "Submit Bean", class: "btn btn-large btn-primary" %>
-      <% end %>
-    </div>
+    <%= render 'shared/new_bean_form' %>
+    <script>if($('.alert-error').text()) $('#new-bean-form').show()</script>
   </div>
 
 </div>

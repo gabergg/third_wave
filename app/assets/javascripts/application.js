@@ -16,8 +16,41 @@
 //= require turbolinks
 //= require_tree .
 
-function init_auto_complete() {
+/*function init_auto_complete() {
     $("#search").autocomplete({
         source: $("#search").data('autocomplete-complete-source')
+    });
+}*/
+
+$.widget( "custom.catcomplete", $.ui.autocomplete, {
+    _create: function() {
+        this._super();
+        this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+    },
+    _renderMenu: function( ul, items ) {
+        var that = this,
+            currentCategory = "";
+        $.each( items, function( index, item ) {
+            var li;
+            if ( item.category != currentCategory ) {
+                ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                currentCategory = item.category;
+            }
+            li = that._renderItemData( ul, item );
+            if ( item.category ) {
+                li.attr( "aria-label", item.category + " : " + item.label );
+            }
+        });
+    }
+});
+
+
+function init_auto_complete() {
+    $( "#search" ).catcomplete({
+        delay: 0,
+        source: $("#search").data('autocomplete-complete-source'),
+        select: function( event, ui ) {
+            window.location = ui.item.url;
+        }
     });
 }

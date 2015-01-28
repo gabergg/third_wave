@@ -1,18 +1,24 @@
 class RoastersController < ApplicationController
 
   def index
-    @roasters = Roaster.all
+    @roasters = Roaster.paginate(page: params[:page], order: 'name ASC')
     @roaster = Roaster.new
   end
 
   def create
+    @roasters = Roaster.paginate(page: params[:page], order: 'name ASC')
     @roaster = Roaster.new(roaster_params)
     if @roaster.save
       flash[:success] = "Roaster Submitted"
       redirect_to roasters_path
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render action: "index" }
+        format.json { render json: @roaster.errors, status: :unprocessable_entity }
+        format.js {}
+      end
     end
+
   end
 
   def show
@@ -21,7 +27,6 @@ class RoastersController < ApplicationController
   end
 
   def new
-    @roaster = Roaster.new
   end
 
   def destroy
@@ -34,7 +39,7 @@ class RoastersController < ApplicationController
 
   def edit
   end
-  
+
   def autocomplete
     @roasters = Roaster.order(:name).where("name ilike ?", "%#{params[:term]}%")
     render json: @roasters.map(&:name)

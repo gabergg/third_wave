@@ -24,6 +24,10 @@ class Bean < ActiveRecord::Base
     end
   end
 
+  def avg_rating_num
+    self[:avg_rating]
+  end
+
   scope :name_like, -> (name) { where("name ilike ?", "%#{name}%") }
   
 =begin

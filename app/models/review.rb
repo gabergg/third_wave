@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  
 
   belongs_to :bean
   belongs_to :user
@@ -15,5 +16,7 @@ class Review < ActiveRecord::Base
       self[:rating]
     end
   end
+
+  WillPaginate.per_page = 10
   
 end

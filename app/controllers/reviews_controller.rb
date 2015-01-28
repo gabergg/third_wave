@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+    #@reviews = Review.all
+    @reviews = Review.paginate(page: params[:page],order: 'created_at DESC')
   end
 
   def create
@@ -14,10 +15,10 @@ class ReviewsController < ApplicationController
       unless @review.rating == "None"
         @bean = Bean.find_by(id: @review[:bean_id])
         @bean.update(num_ratings: @bean.num_ratings + 1)
-        @bean.update(avg_rating: (@bean.avg_rating + @review.rating)/@bean.num_ratings)
+        @bean.update(avg_rating: (@bean.avg_rating_num + @review.rating)/@bean.num_ratings)
         @roaster = Roaster.find_by(id: @bean[:roaster_id])
         @roaster.update(num_ratings: @roaster.num_ratings + 1)
-        @roaster.update(avg_rating: (@roaster.avg_rating + @review.rating)/@roaster.num_ratings)
+        @roaster.update(avg_rating: (@roaster.avg_rating_num + @review.rating)/@roaster.num_ratings)
       end
       redirect_to beans_path
     else
