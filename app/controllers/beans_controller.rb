@@ -3,10 +3,6 @@ class BeansController < ApplicationController
   def index
     @beans = Bean.all
     @bean = Bean.new
-=begin
-    @roasters = Category.order(:name).where("name like ?", "%#{params[:term]}%")
-    render json: @roasters.map(&:name)
-=end
   end
 
   def create

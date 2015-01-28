@@ -6,7 +6,7 @@ ThirdWave::Application.routes.draw do
   resources :sessions
 
   root 'pages#home'
-  match '/roastersearch', to: 'roasters#autocomplete_index', via: 'get'
+  match '/roastersearch', to: 'roasters#autocomplete', via: 'get'
   match '/completesearch', to: 'pages#autocomplete', via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

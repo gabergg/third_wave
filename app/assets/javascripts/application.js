@@ -15,3 +15,9 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+function init_auto_complete() {
+    $("#search").autocomplete({
+        source: $("#search").data('autocomplete-complete-source')
+    });
+}
