@@ -2,7 +2,7 @@ class Roaster < ActiveRecord::Base
 
   has_many :beans
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   def avg_rating
     if self[:avg_rating] == 0
