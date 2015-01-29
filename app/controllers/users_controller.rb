@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-  before_action :correct_user,   only: [:edit, :update, :destroy]
+
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :destroy]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user, only: :destroy
 
   def index
     @users = User.all
   end
-  
+
   def new
     @user = User.new
   end
@@ -42,6 +43,8 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
+    flash[:success] = "User deleted."
+    redirect_to users_url
   end
 
   private

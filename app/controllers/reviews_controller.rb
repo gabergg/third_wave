@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+  before_action :signed_in_user, only: [:create, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
+
   def index
     @reviews = Review.paginate(page: params[:page],order: 'created_at DESC')
   end
@@ -34,6 +37,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    Review.find(params[:id]).destroy
+    redirect_to root_path
   end
 
   def update
@@ -46,6 +51,13 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :brew_method, :description, :user_id, :bean_id)
+  end
+  
+  #Before filters
+
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    redirect_to root_url if @review.nil?
   end
 
 end

@@ -1,12 +1,14 @@
 class BeansController < ApplicationController
 
+  before_filter :admin_user, only: :destroy
+
   def index
-    @beans = Bean.paginate(page: params[:page],order: 'avg_rating DESC')
+    @beans = Bean.paginate(page: params[:page], order: 'avg_rating DESC')
     @bean = Bean.new
   end
 
   def create
-    @beans = Bean.paginate(page: params[:page],order: 'avg_rating DESC')
+    @beans = Bean.paginate(page: params[:page], order: 'avg_rating DESC')
     @bean = Bean.new(bean_params)
     if @bean.save
       flash[:success] = "Bean Submitted"
@@ -38,7 +40,7 @@ class BeansController < ApplicationController
 
   def edit
   end
-  
+
   def roaster_name
     roaster.try(:name)
   end
@@ -51,6 +53,10 @@ class BeansController < ApplicationController
 
   def bean_params
     params.require(:bean).permit(:roaster_name, :roaster_id, :name, :origin, :roast)
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 
 end
