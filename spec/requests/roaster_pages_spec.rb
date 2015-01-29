@@ -1,45 +1,54 @@
 require 'spec_helper'
 
-describe "Roaster pages" do
+describe "roaster pages" do
 
   subject { page }
 
-  let(:user) { FactoryGirl.create(:user) }
-  before { sign_in user }
+  before { visit roasters_path }
 
-  describe "micropost creation" do
-    before { visit root_path }
+  describe "roaster creation" do
+    before { click_button "Add a roaster" }
 
     describe "with invalid information" do
 
       it "should not create a micropost" do
-        expect { click_button "Post" }.not_to change(Micropost, :count)
+        expect { click_button "Submit" }.not_to change(roaster, :count)
       end
 
       describe "error messages" do
-        before { click_button "Post" }
+        before { click_button "Submit" }
         it { should have_content('error') }
       end
     end
 
     describe "with valid information" do
 
-      before { fill_in 'micropost_content', with: "Lorem ipsum" }
-      it "should create a micropost" do
-        expect { click_button "Post" }.to change(Micropost, :count).by(1)
+      before { fill_in 'roaster_name', with: "Tasty roaster" }
+      it "should create a roaster" do
+        expect { click_button "Post" }.to change(roaster, :count).by(1)
       end
     end
   end
+  
+  describe "roaster destruction" do
+    before { FactoryGirl.create(:user, admin: true) }
+    before { FactoryGirl.create(:roaster) }
 
-  describe "micropost destruction" do
-    before { FactoryGirl.create(:micropost, user: user) }
+    describe "as admin" do
+      before { visit roasters_path }
 
-    describe "as correct user" do
-      before { visit root_path }
-
-      it "should delete a micropost" do
-        expect { click_link "delete" }.to change(Micropost, :count).by(-1)
+      it "should delete a roaster" do
+        expect { click_link "Remove" }.to change(roaster, :count).by(-1)
       end
     end
   end
+  
+  describe "roaster page" do
+    let(:roaster) { FactoryGirl.create(:roaster) }
+    before { visit roaster_path(roaster) }
+
+    it { should have_content(roaster.name) }
+    it { should have_title(roaster.name) }
+  end
+  
 end

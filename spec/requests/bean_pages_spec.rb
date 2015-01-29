@@ -4,42 +4,50 @@ describe "Bean pages" do
 
   subject { page }
 
-  let(:user) { FactoryGirl.create(:user) }
-  before { sign_in user }
+  before { visit beans_path }
 
-  describe "micropost creation" do
-    before { visit root_path }
+  describe "bean creation" do
+    before { click_button "Add a bean" }
 
     describe "with invalid information" do
 
       it "should not create a micropost" do
-        expect { click_button "Post" }.not_to change(Micropost, :count)
+        expect { click_button "Submit" }.not_to change(Bean, :count)
       end
 
       describe "error messages" do
-        before { click_button "Post" }
+        before { click_button "Submit" }
         it { should have_content('error') }
       end
     end
 
     describe "with valid information" do
 
-      before { fill_in 'micropost_content', with: "Lorem ipsum" }
-      it "should create a micropost" do
-        expect { click_button "Post" }.to change(Micropost, :count).by(1)
+      before { fill_in 'bean_name', with: "Tasty Bean" }
+      it "should create a bean" do
+        expect { click_button "Post" }.to change(Bean, :count).by(1)
       end
     end
   end
 
-  describe "micropost destruction" do
-    before { FactoryGirl.create(:micropost, user: user) }
+  describe "bean destruction" do
+    before { FactoryGirl.create(:user, admin: true) }
+    before { FactoryGirl.create(:bean) }
 
-    describe "as correct user" do
-      before { visit root_path }
+    describe "as admin" do
+      before { visit beans_path }
 
-      it "should delete a micropost" do
-        expect { click_link "delete" }.to change(Micropost, :count).by(-1)
+      it "should delete a bean" do
+        expect { click_link "Remove" }.to change(Bean, :count).by(-1)
       end
     end
+  end
+
+  describe "bean page" do
+    let(:bean) { FactoryGirl.create(:bean) }
+    before { visit bean_path(bean) }
+
+    it { should have_content(bean.name) }
+    it { should have_title(bean.name) }
   end
 end
