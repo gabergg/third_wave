@@ -5,8 +5,8 @@ class Bean < ActiveRecord::Base
   has_many :reviews
   has_many :users, :through => :reviews
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
-  #validates :roaster_id, presence: true
+  #validates :name, uniqueness: { case_sensitive: false }
+  validates :roaster_name, presence: true
 
   def roaster_name
     roaster.try(:name)
