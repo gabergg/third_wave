@@ -169,6 +169,7 @@ ul.nav a:link, a:visited {
   opacity: 0.8;
   filter: alpha(opacity=80);
   padding-bottom: 2em;
+  border-radius: 10px;
 }
 
 .words {
@@ -187,8 +188,8 @@ ul.nav a:link, a:visited {
   right: 0;
 }
 
-.roaster a:link, .roaster a:active,{
-  font-weight: bold;
+.roaster a:link, .roaster a:active, .roaster_location {
+  //font-weight: bold;
   display:inline-block;
   text-decoration: none;
   font-size:18px;
@@ -196,7 +197,7 @@ ul.nav a:link, a:visited {
   color: #8B572A;
 }
 .roaster a:visited{
-  font-weight: bold;
+  //font-weight: bold;
   display:inline-block;
   text-decoration: none;
   font-size:18px;
@@ -209,35 +210,59 @@ ul.nav a:link, a:visited {
   color: #503218;
 }
 
-.bean a:link, .bean a:active {
+.bean a:link, .bean a:active, .roaster_name {
+  font-weight: bold;
   display: inline-block;
   font-size:20px;
   margin-top:15px;
-  color: #8B572A;
+  color: #342110;
 }
-.bean a:visited, a:hover {
+.bean a:visited, .bean a:hover {
+  font-weight: bold;
   display: inline-block;
   font-size:20px;
   margin-top:15px;
-  color: #8B572A;
+  color: #342110;
 }
-.roast, .origin, .rating{
+.roast, .origin,
+.roaster_avgrating, .roaster_description{
   margin-top:10px;
   display: inline-block;
   border:2px solid #e6e6e6;
   border-radius: 10px;
-  padding: 5px;
+  padding: 7px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
   width: 100%;
 }
 
-.rate_button{
+.rating, .roaster_description{
+  margin-top:10px;
+  display: inline-block;
+  border:2px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 7px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.rate_button {
   text-decoration: none;
   font-color: #8B572A;
-  margin-top:15px;
+  margin-top:32px;
   display: inline-block;
+  border:2px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 7px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  width: 75%;
+  margin-bottom: 2em;
 }
 .eachbean {
   margin-top: 2em;
@@ -246,9 +271,8 @@ ul.nav a:link, a:visited {
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */;
   padding: 16px;
-
   background-color: #fff;
-
+  margin-bottom: 1em;
 }
 .add_bean{
   display:inline-block;
