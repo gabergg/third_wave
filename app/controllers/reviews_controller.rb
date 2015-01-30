@@ -16,11 +16,11 @@ class ReviewsController < ApplicationController
       flash[:success] = "Review Submitted"
       unless @review.rating == "None"
         @bean = Bean.find_by(id: @review[:bean_id])
+        @bean.update(avg_rating: (@bean.avg_rating_num*@bean.num_ratings + @review.rating)/(@bean.num_ratings+1))
         @bean.update(num_ratings: @bean.num_ratings + 1)
-        @bean.update(avg_rating: (@bean.avg_rating_num + @review.rating)/@bean.num_ratings)
         @roaster = Roaster.find_by(id: @bean[:roaster_id])
+        @roaster.update(avg_rating: (@roaster.avg_rating_num*@roaster.num_ratings + @review.rating)/@roaster.num_ratings+1)
         @roaster.update(num_ratings: @roaster.num_ratings + 1)
-        @roaster.update(avg_rating: (@roaster.avg_rating_num + @review.rating)/@roaster.num_ratings)
       end
       redirect_to beans_path
     else
@@ -61,3 +61,11 @@ class ReviewsController < ApplicationController
   end
 
 end
+
+2
+4
+num = 2
+avg = 3
+5
+
+11/3
