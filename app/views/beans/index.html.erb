@@ -1,16 +1,16 @@
 <% provide(:title, 'Beans') %>
 <div class="row-fluid">
-<div class="text-center span3 offset4"><h1 class="beanheading">Beans</h1></div><span class="add_bean span2 offset1">
+  <div class="text-center span3 offset4"><h1 class="beanheading">Beans</h1></div><span class="add_bean span2 offset1">
 <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
-                   class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
+               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
 
 </div>
 
 <div class="row">
   <div class="span8 offset2">
-      <%= render 'shared/new_bean_form' %>
-    <script>if($('.alert-error').text()) $('#new-bean-form').show()</script>
-      <% @beans.each do |bean| %>
+    <%= render 'shared/new_bean_form' %>
+    <script>if ($('.alert-error').text()) $('#new-bean-form').show()</script>
+    <% @beans.each do |bean| %>
         <div class="eachbean">
           <div class="row-fluid">
             <div class="span3">
@@ -24,13 +24,15 @@
               <span class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
               <span class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
               <span class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
-              
-            </div>
-          </div> 
-        </div>
-      <% end %>
-  </div>
 
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <%= will_paginate @beans %>
 </div>
 
 <script>init_auto_roaster()</script>

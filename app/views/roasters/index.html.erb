@@ -1,17 +1,17 @@
 <% provide(:title, 'Roasters') %>
 <div class="row-fluid">
-<div class="text-center span3 offset4"><h1 class="beanheading">Roasters</h1></div><span class="add_bean span2 offset1">
+  <div class="text-center span3 offset4"><h1 class="beanheading">Roasters</h1>
+  </div><span class="add_bean span2 offset1">
 <%= button_tag "Add a roaster", type: "button", onclick: "$('#new-roaster-form').toggle()",
-                   class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><i class="glyphicon"></i><% end %></span>
-
+               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><i class="glyphicon"></i><% end %></span>
 </div>
 
 
 <div class="row">
   <div class="span8 offset2">
     <%= render 'shared/new_roaster_form' %>
-    <script>if($('.alert-error').text()) $('#new-roaster-form').show()</script>
-      <% @roasters.each do |roaster| %>
+    <script>if ($('.alert-error').text()) $('#new-roaster-form').show()</script>
+    <% @roasters.each do |roaster| %>
         <div class="eachbean">
           <div class="row-fluid">
             <div class="span3">
@@ -28,17 +28,20 @@
                   <%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>
             </div>
-             </div>
-              </div>
-      <% end %>
-     </div>
-    <%= will_paginate @roasters %>
+          </div>
+        </div>
+    <% end %>
+  </div>
 
- <div class="span4">
+  <div class="span4">
 
     <%= render 'shared/new_roaster_form' %>
-    <script>if($('.alert-error').text()) $('#new-roaster-form').show()</script>
+    <script>if ($('.alert-error').text()) $('#new-roaster-form').show()</script>
 
   </div>
+</div>
+<div class="row">
+  <%= will_paginate @roasters %>
+</div>
 
 <script>init_auto_location()</script>
