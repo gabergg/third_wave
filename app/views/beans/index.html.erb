@@ -19,12 +19,20 @@
             <div class="span3">
               <span class="bean"><%= link_to bean.name, bean %></span><br>
               <span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span>
+              <span class="rate_button">
+                <% if signed_in? %>
+                    <%= link_to "Rate Bean", new_review_path(bean_id: bean.id) %>
+                <% end %>
+                <br>
+                <% if current_user && current_user.admin? %>
+                    <%= link_to "Remove Bean", bean, method: :delete, data: {confirm: "Are you sure?"} %>
+                <% end %>
+                </span>
             </div>
             <div class="span5 offset1">
               <span class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
               <span class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
               <span class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
-
             </div>
           </div>
         </div>
