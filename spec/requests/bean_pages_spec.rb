@@ -12,11 +12,11 @@ describe "Bean pages" do
     describe "with invalid information" do
 
       it "should not create a micropost" do
-        expect { click_button "Submit" }.not_to change(Bean, :count)
+        expect { click_button "Submit Bean" }.not_to change(Bean, :count)
       end
 
       describe "error messages" do
-        before { click_button "Submit" }
+        before { click_button "Submit Bean" }
         it { should have_content('error') }
       end
     end

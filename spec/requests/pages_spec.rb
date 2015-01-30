@@ -25,6 +25,7 @@ describe "Pages" do
 
       # pick up here
       
+=begin
       it "should render the user's reviews" do
         user.reviews.each do |item|
           expect(page).to have_selector("li##{item.id}", text: item.content)
@@ -41,6 +42,7 @@ describe "Pages" do
         it { should have_link("0 following", href: following_user_path(user)) }
         it { should have_link("1 followers", href: followers_user_path(user)) }
       end
+=end
     end
   end
 

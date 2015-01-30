@@ -6,6 +6,7 @@ describe "Review pages" do
 
   let(:user) { FactoryGirl.create(:user) }
   before { sign_in user }
+=begin
 
   describe "micropost creation" do
     before { visit root_path }
@@ -42,4 +43,5 @@ describe "Review pages" do
       end
     end
   end
+=end
 end

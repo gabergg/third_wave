@@ -4,6 +4,7 @@ describe RoastersController do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:other_user) { FactoryGirl.create(:user) }
+=begin
 
   before { sign_in user, no_capybara: true }
 
@@ -39,4 +40,5 @@ describe RoastersController do
       expect(response).to be_success
     end
   end
+=end
 end

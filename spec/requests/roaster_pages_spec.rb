@@ -16,7 +16,7 @@ describe "roaster pages" do
       end
 
       describe "error messages" do
-        before { click_button "Submit" }
+        before { click_button "Submit Roaster" }
         it { should have_content('error') }
       end
     end
@@ -25,7 +25,7 @@ describe "roaster pages" do
 
       before { fill_in 'roaster_name', with: "Tasty roaster" }
       it "should create a roaster" do
-        expect { click_button "Post" }.to change(roaster, :count).by(1)
+        expect { click_button "Submit Roaster" }.to change(roaster, :count).by(1)
       end
     end
   end
