@@ -1,5 +1,4 @@
 class Review < ActiveRecord::Base
-  
 
   belongs_to :bean
   belongs_to :user
@@ -8,6 +7,8 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true
   validates :rating, numericality: {less_than_or_equal_to: 5}
   validates :rating, numericality: {greater_than_or_equal_to: 0}
+  validates :user_id, presence: true
+  validates :bean_id, presence: true
 
   def rating
     if self[:rating] == 0

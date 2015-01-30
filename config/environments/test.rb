@@ -33,4 +33,7 @@ ThirdWave::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  #Speed up testing with bcrypt's min cost
+  ActiveModel::SecurePassword.min_cost = true
 end

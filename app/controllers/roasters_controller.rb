@@ -1,5 +1,7 @@
 class RoastersController < ApplicationController
 
+  before_action :admin_user, only: :destroy
+
   def index
     @roasters = Roaster.paginate(page: params[:page], order: 'name ASC')
     @roaster = Roaster.new
@@ -49,6 +51,10 @@ class RoastersController < ApplicationController
 
   def roaster_params
     params.require(:roaster).permit(:name, :location, :description)
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 
 end
