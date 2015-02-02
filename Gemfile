@@ -7,7 +7,10 @@ gem 'rails', '4.0.8'
 gem 'pg'
 
 #Bootstrap
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '~> 3.2.0' 
+
+#Autoprefixer for vendor prefixes
+gem 'autoprefixer-rails'
 
 gem 'sprockets', '2.11.0'
 

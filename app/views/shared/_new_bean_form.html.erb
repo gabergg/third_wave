@@ -1,20 +1,44 @@
 <div id="new-bean-form" style="display: none;">
-  <%= form_for(@bean) do |f| %>
+  <%= form_for @bean, :html => {:role => 'form'} do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :roaster_name %>
-      <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'} %>
+      <div class="form-group">
+        <%= f.label :roaster_name %>
+        <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'}, :class => 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <div class="form-group">
+        <%= f.label :roast %>
+        <%= f.text_field :roast, :class => 'form-control' %>
+      </div>
 
-      <%= f.label :roast %>
-      <%= f.text_field :roast %>
-
-      <%= f.label :origin %>
-      <%= f.text_field :origin %>
+      <div class="form-group">
+        <%= f.label :origin %>
+        <%= f.text_field :origin, :class => 'form-control' %>
+      </div>
       <br><br>
 
       <%= f.submit "Submit Bean", class: "btn" %>
   <% end %>
 </div>
+
+<% if false %>
+    <form role="form">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+<% end %>
