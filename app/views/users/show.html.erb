@@ -5,12 +5,12 @@
     <h1><%= @user.name %>'s Reviews</h1>
 <% end %>
 <div class="row">
-  <aside class="span4">
+  <aside class="col-md-4">
     <section>
     </section>
   </aside>
 
-  <div class="span8">
+  <div class="col-md-8">
     <% if @user.reviews.any? %>
         <%= render partial: 'shared/user_reviews' %>
     <% end %>

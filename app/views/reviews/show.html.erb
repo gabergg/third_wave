@@ -1,11 +1,11 @@
 <% provide(:title, @review.bean.name) %>
 <div class="container">
   <div class="row">
-    <div class="span3">
+    <div class="col-md-3">
       <p>Bean: <%= link_to @review.bean.name, @review.bean %></p>
     </div>
 
-    <div class="span6">
+    <div class="col-md-6">
       <ul>
         <li>Roaster: <%= link_to @review.bean.roaster.name, @review.bean.roaster %></li>
         <li>Origin: <%= @review.bean.origin %></li>
