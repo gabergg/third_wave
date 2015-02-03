@@ -1,16 +1,21 @@
 <div id="new-roaster-form" style="display: none;">
-  <%= form_for(@roaster) do |f| %>
+  <%= form_for @roaster, :html => {:role => 'form'} do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
 
-      <%= f.label :location %>
-      <%= f.text_field :location, onchange: "geolocate()", id: "autocomplete_location", placeholder: "" %> <br>
+      <div class="form-group location-group">
+        <%= f.label :location %>
+        <%= f.text_field :location, onchange: "geolocate()", id: "autocomplete_location", placeholder: "", :class => 'form-control' %> <br>
+      </div>
 
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-      <br><br>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, :class => 'form-control input-small' %>
+      </div>
 
       <%= f.submit "Submit Roaster", class: "btn" %>
   <% end %>

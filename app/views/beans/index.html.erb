@@ -1,8 +1,9 @@
 <% provide(:title, 'Beans') %>
 <div class="row-fluid">
-  <div class="text-center col-md-3 col-md-offset-4"><h1 class="beanheading">Beans</h1></div><col-md- class="add_bean col-md-2 col-md-offset-1">
+  <div class="text-center col-md-3 col-md-offset-4"><h1 class="beanheading">Beans</h1>
+  </div><span class="add_bean col-md-2 col-md-offset-1">
 <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
-               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></col-md->
+               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
 
 </div>
 
@@ -12,27 +13,30 @@
     <script>if ($('.alert-error').text()) $('#new-bean-form').show()</script>
     <% @beans.each do |bean| %>
         <div class="eachbean">
-          <div class="row-fluid">
+          <div class="row">
             <div class="col-md-3">
               <%= image_tag "placeholder.png" %>
             </div>
             <div class="col-md-3">
-              <col-md- class="bean"><%= link_to bean.name, bean %></col-md-><br>
-              <col-md- class="roaster"><%= link_to bean.roaster.name, bean.roaster %></col-md->
-              <col-md- class="rate_button">
+              <ul>
+                <li><span class="bean"><%= link_to bean.name, bean %></span></li>
+                <li><span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span></li>
+
+                <li><span class="rate_button">
                 <% if signed_in? %>
                     <%= link_to "Rate Bean", new_review_path(bean_id: bean.id) %>
                 <% end %>
-                <br>
-                <% if current_user && current_user.admin? %>
+                  <br>
+                  <% if current_user && current_user.admin? %>
                     <%= link_to "Remove Bean", bean, method: :delete, data: {confirm: "Are you sure?"} %>
                 <% end %>
-                </col-md->
+              </span></li>
+              </ul>
             </div>
-            <div class="col-md-5 col-md-offset-1">
-              <col-md- class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></col-md-><br>
-              <col-md- class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></col-md-><br>
-              <col-md- class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></col-md-><br>
+            <div class="col-md-6">
+              <span class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
+              <span class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
+              <span class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
             </div>
           </div>
         </div>

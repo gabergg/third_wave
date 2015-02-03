@@ -1,0 +1,25 @@
+.location-group {
+  margin-bottom: -3px !important;
+}
+
+.roaster a:link, .roaster a:active, .roaster_location {
+  //font-weight: bold;
+  display:inline-block;
+  text-decoration: none;
+  font-size:18px;
+  margin-top:15px;
+  color: #8B572A;
+}
+.roaster a:visited{
+  //font-weight: bold;
+  display:inline-block;
+  text-decoration: none;
+  font-size:18px;
+  margin-top:15px;
+  color: #503218;
+}
+
+/* mouse over link */
+.roaster a:hover {
+  color: #503218;
+}

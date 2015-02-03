@@ -20,3 +20,52 @@ ul.ui-autocomplete {
     }
   }
 }
+
+.rate_button {
+  text-decoration: none;
+  font-color: #8B572A;
+  margin-top:32px;
+  display: inline-block;
+  border:2px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 7px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  width: 75%;
+  margin-bottom: 2em;
+}
+.eachbean {
+  margin-top: 2em;
+  border-radius: 10px;
+  border-bottom: 2px solid rgba(204, 204, 204, .7);
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */;
+  padding: 16px;
+  background-color: #fff;
+  margin-bottom: 1em;
+}
+.add_bean{
+  display:inline-block;
+  vertical-align: bottom;
+  padding-top:10px;
+
+}
+.bean_heading{
+  display:inline;
+}
+
+.bean a:link, .bean a:active, .roaster_name {
+  font-weight: bold;
+  display: inline-block;
+  font-size:20px;
+  margin-top:15px;
+  color: #342110;
+}
+.bean a:visited, .bean a:hover {
+  font-weight: bold;
+  display: inline-block;
+  font-size:20px;
+  margin-top:15px;
+  color: #342110;
+}

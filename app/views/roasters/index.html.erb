@@ -1,9 +1,9 @@
 <% provide(:title, 'Roasters') %>
 <div class="row-fluid">
   <div class="text-center col-md-3 col-md-offset-4"><h1 class="beanheading">Roasters</h1>
-  </div><col-md- class="add_bean col-md-2 col-md-offset-1">
+  </div><span class="add_bean col-md-2 col-md-offset-1">
 <%= button_tag "Add a roaster", type: "button", onclick: "$('#new-roaster-form').toggle()",
-               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><i class="glyphicon"></i><% end %></col-md->
+               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><i class="glyphicon"></i><% end %></span>
 </div>
 
 
@@ -13,17 +13,17 @@
     <script>if ($('.alert-error').text()) $('#new-roaster-form').show()</script>
     <% @roasters.each do |roaster| %>
         <div class="eachbean">
-          <div class="row-fluid">
+          <div class="row">
             <div class="col-md-3">
               <%= image_tag "placeholder.png" %>
             </div>
             <div class="col-md-3">
-              <col-md- class="roaster_name"><%= link_to roaster.name, roaster %></col-md-><br>
-              <col-md- class="roaster_location"><%= roaster.location %></col-md->
+              <span class="roaster_name"><%= link_to roaster.name, roaster %></span><br>
+              <span class="roaster_location"><%= roaster.location %></span>
             </div>
-            <div class="col-md-5 col-md-offset-1">
-              <col-md- class="roaster_avgrating">Avg. Rating: &nbsp;&nbsp;&nbsp;<%= roaster.avg_rating != "None" ? roaster.avg_rating.round(2) : "None" %></col-md-><br>
-              <col-md- class="roaster_description">Description:&nbsp;&nbsp;&nbsp;<%= roaster.description %></col-md-><br>
+            <div class="col-md-6">
+              <span class="roaster_avgrating">Avg. Rating: &nbsp;&nbsp;&nbsp;<%= roaster.avg_rating != "None" ? roaster.avg_rating.round(2) : "None" %></span><br>
+              <span class="roaster_description">Description:&nbsp;&nbsp;&nbsp;<%= roaster.description %></span><br>
               <% if current_user && current_user.admin? %>
                   <%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>
