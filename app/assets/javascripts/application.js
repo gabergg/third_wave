@@ -46,9 +46,9 @@ $.widget( "custom.catcomplete", $.ui.autocomplete, {
 
 
 function init_auto_complete() {
-    $( "#search" ).catcomplete({
+    $( ".search" ).catcomplete({
         delay: 0,
-        source: $("#search").data('autocomplete-complete-source'),
+        source: $(".search").data('autocomplete-complete-source'),
         select: function( event, ui ) {
             window.location = ui.item.url;
         }
