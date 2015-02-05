@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    #@users = User.all.order(reviews.count)
-    @users = User.all
+    @users = User.all.order('name ASC')
   end
 
   def new

@@ -1,4 +1,10 @@
 <% provide(:title, 'Users') %>
 <div>
+  <% @users.each do |user| %>
+      <ul>
+        <li><%= link_to user.name, user %></li>
+        <li><%= user.reviews.count %></li>
+      </ul>
+  <% end %>
   <!-- Let's have a list of users, sorted desc by number of reviews -->
 </div>

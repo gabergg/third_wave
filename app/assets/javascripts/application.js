@@ -16,12 +16,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-/*function init_auto_complete() {
-    $("#search").autocomplete({
-        source: $("#search").data('autocomplete-complete-source')
-    });
-}*/
-
 $.widget( "custom.catcomplete", $.ui.autocomplete, {
     _create: function() {
         this._super();

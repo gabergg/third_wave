@@ -1,3 +1,8 @@
+<div class="row text-center">
+  <%= render 'shared/search_bar' %>
+</div>
+<br><br>
+
 <% if signed_in? %>
     <% provide(:title, "My dashboard") %>
     <div class="row">
@@ -24,6 +29,3 @@
       </div>
     </div>
 <% end %>
-<div class="row">
-  <%= render 'shared/search_bar' %>
-</div>

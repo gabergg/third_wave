@@ -63,23 +63,8 @@ p {
 
 /* header */
 
-#logo {
-  float: left;
-  margin: 0px 10px 10px 10px;
-  font-size: 1.5em;
-  letter-spacing: -1px;
-  font-weight: bold;
-  width: 1.75em;
-  height: auto;
-  line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
-
 /* nav bad */
-.topmargin {
+.nav {
   margin-top: 1.5em;
 }
 
@@ -152,13 +137,6 @@ ul.nav a:link, a:visited {
   }
 }
 
-#navcontainer {
-  width: 940px;
-  margin-right: auto;
-  margin-left: auto;
-  height: 3.5em;
-}
-
 .container {
   width: 75%;
   background: #fff;
@@ -173,16 +151,6 @@ ul.nav a:link, a:visited {
   border-radius: 10px;
 }
 
-.words {
-  font-family: 'Lobster', Georgia, Times, serif;
-  font-weight: bold;
-  display: inline-block;
-  position: absolute;
-  color: #333333;
-  text-align: left;
-  font-size: 30px;
-}
-
 .navbar-fixed-bottom {
   position: fixed;
   bottom: 0;
@@ -193,24 +161,24 @@ ul.nav a:link, a:visited {
 .roaster_avgrating, .roaster_description{
   margin-top:10px;
   display: inline-block;
-  border:2px solid #e6e6e6;
-  border-radius: 10px;
+  //border:2px solid #e6e6e6;
+  //border-radius: 10px;
   padding: 7px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+  /*-webkit-box-sizing: border-box; *//* Safari/Chrome, other WebKit *//*
+  -moz-box-sizing: border-box;    *//* Firefox, other Gecko *//*
+  box-sizing: border-box;         *//* Opera/IE 8+ */
   width: 100%;
 }
 
 .rating, .roaster_description{
   margin-top:10px;
   display: inline-block;
-  border:2px solid #e6e6e6;
-  border-radius: 10px;
+  //border:2px solid #e6e6e6;
+  //border-radius: 10px;
   padding: 7px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+  /*-webkit-box-sizing: border-box; *//* Safari/Chrome, other WebKit *//*
+  -moz-box-sizing: border-box;    *//* Firefox, other Gecko *//*
+  box-sizing: border-box;         *//* Opera/IE 8+ */
   width: 100%;
   margin-bottom: 2em;
 }
