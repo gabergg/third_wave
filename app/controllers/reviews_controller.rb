@@ -42,9 +42,16 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    if @review.update_attributes(review_params)
+      flash[:success] = "Review updated"
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   private
