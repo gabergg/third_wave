@@ -3,7 +3,8 @@ class RoastersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @roasters = Roaster.paginate(page: params[:page], order: 'name ASC')
+    #@roasters = Roaster.paginate(page: params[:page], order: 'name ASC')
+    @roasters = Roaster.paginate(page: params[:page], order: 'avg_rating DESC')
     @roaster = Roaster.new
   end
 
