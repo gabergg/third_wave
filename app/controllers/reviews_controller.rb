@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
   def update
     if @review.update_attributes(review_params)
       flash[:success] = "Review updated"
-      redirect_to root_path
+      redirect_to @review.user
     else
       render 'edit'
     end

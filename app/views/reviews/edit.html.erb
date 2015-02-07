@@ -6,7 +6,6 @@
     <%= form_for @review, :html => {:class => 'need_slider'} do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%#= current_rating = (@review.rating != "None" ? @review.rating : "None") %>
         <% if !@review.rating.is_a?(String) && @review.rating.round(1) == @review.rating %>
             <% printed_rating = @review.rating.round(0) %>
         <% else %>
