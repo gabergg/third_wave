@@ -6,14 +6,21 @@
     <%= form_for @review, :html => {:class => 'need_slider'} do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :rating, "Rating: None" %>
-        <%= f.range_field :rating, in: 0..5, step: '.5', value: 0 %>
+        <%#= current_rating = (@review.rating != "None" ? @review.rating : "None") %>
+        <% if !@review.rating.is_a?(String) && @review.rating.round(1) == @review.rating %>
+            <% printed_rating = @review.rating.round(0) %>
+        <% else %>
+            <% printed_rating = @review.rating %>
+        <% end %>
+
+        <%= f.label :rating, "Rating: " + printed_rating.to_s %>
+        <%= f.range_field :rating, in: 0..5, step: '.5', value: @review.rating != "None" ? @review.rating : 0 %>
 
         <%= f.label :brew_method %>
         <%= f.text_field :brew_method, :value => @review.brew_method %>
 
         <%= f.label :description %>
-        <%= f.text_field :description %> <br>
+        <%= f.text_field :description, :value => @review.description %> <br>
 
         <%= hidden_field_tag :bean_id, params[:bean_id] %>
         <%= hidden_field_tag :user_id, current_user.id %>
@@ -24,11 +31,11 @@
   </div>
 </div>
 <script>
-        $(".need_slider").change(function () {
-            $form = $(this);
-            $input_value = $form.children("#review_rating").val();
-            $final_input = $input_value == 0 ? "None" : $input_value;
-            $label = $form.children("#review_rating").prev();
-            $label.text("Rating: " + $final_input);
-        });
+    $(".need_slider").change(function () {
+        $form = $(this);
+        $input_value = $form.children("#review_rating").val();
+        $final_input = $input_value == 0 ? "None" : $input_value;
+        $label = $form.children("#review_rating").prev();
+        $label.text("Rating: " + $final_input);
+    });
 </script>
