@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_reviews = @user.reviews
+    @reviews = @user.reviews.paginate(page: params[:page], order: 'updated_at DESC')
   end
 
   def create
