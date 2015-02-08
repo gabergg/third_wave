@@ -1,18 +1,29 @@
 <% provide(:title, @review.bean.name) %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <p>Bean: <%= link_to @review.bean.name, @review.bean %></p>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="row">
+      <div class="col-md-3">
+        <%= image_tag "placeholder.png" %>
+      </div>
+      <div class="col-md-3">
+        <span class=card-element"><%= link_to @review.bean.name, @review.bean %></span>
+      </div>
+      <div class="col-md-6">
+        <span class="card-element">Roaster: &nbsp;&nbsp;&nbsp;<%= link_to @review.bean.roaster.name, @review.bean.roaster %></span><br>
+        <span class="card-element">Origin:&nbsp;&nbsp;&nbsp;<%= @review.bean.origin %></span><br>
+        <span class="card-element">Rating:&nbsp;&nbsp;&nbsp;<%= @review.rating %></span><br>
+        <span class="card-element">Description:&nbsp;&nbsp;&nbsp;<%= @review.description %></span><br>
+        <span class="card-element">Submitted by:&nbsp;&nbsp;&nbsp;<%= link_to @review.user.name, @review.user %></span><br>
+        <% if current_user == @review.user %>
+            <span class="card-element"><%= link_to "Edit", edit_review_path(@review.id) %></span>
+        <% end %>
+        <% if (current_user && current_user.admin?) || (current_user == @review.user) %>
+            <span class="card-element"><%= link_to "Remove", @review, method: :delete, data: {confirm: "Are you sure?"} %></span>
+        <% end %>
+      </div>
     </div>
 
-    <div class="col-md-6">
-      <ul>
-        <li>Roaster: <%= link_to @review.bean.roaster.name, @review.bean.roaster %></li>
-        <li>Origin: <%= @review.bean.origin %></li>
-        <li>Rating: <%= @review.rating %></li>
-        <li>Description: <%= @review.description %></li>
-        <li>Submitted by: <%= link_to @review.user.name, @review.user %></li>
-      </ul>
-    </div>
   </div>
 </div>
