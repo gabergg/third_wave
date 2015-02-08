@@ -25,7 +25,7 @@
               <span class="card-element">Avg. Rating: &nbsp;&nbsp;&nbsp;<%= roaster.avg_rating != "None" ? roaster.avg_rating.round(2) : "None" %></span><br>
               <span class="card-element">Description:&nbsp;&nbsp;&nbsp;<%= roaster.description %></span><br>
               <% if current_user && current_user.admin? %>
-                  <%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %>
+                  <span class="card-element"><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></span>
               <% end %>
             </div>
           </div>

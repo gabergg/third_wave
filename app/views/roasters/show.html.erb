@@ -13,18 +13,13 @@
                   <%= image_tag "placeholder.png" %>
                 </div>
                 <div class="col-md-3">
-                  <ul>
-                    <li><span class="card-element"><%= link_to bean.name, bean %></span></li>
-                    <li><span class="card-element">
-                <% if signed_in? %>
-                    <%= link_to "Rate Bean", new_review_path(bean_id: bean.id) %>
-                <% end %>
-                      <br>
-                      <% if current_user && current_user.admin? %>
-                    <%= link_to "Remove Bean", bean, method: :delete, data: {confirm: "Are you sure?"} %>
-                <% end %>
-              </span></li>
-                  </ul>
+                  <span class="card-element"><%= link_to bean.name, bean %></span>
+                  <% if signed_in? %>
+                      <span class="card-element"><%= link_to "Rate Bean", new_review_path(bean_id: bean.id) %></span>
+                  <% end %>
+                  <% if current_user && current_user.admin? %>
+                      <span class="card-element"><%= link_to "Remove Bean", bean, method: :delete, data: {confirm: "Are you sure?"} %></span>
+                  <% end %>
                 </div>
                 <div class="col-md-6">
                   <span class="card-element">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
