@@ -24,7 +24,7 @@ class BeansController < ApplicationController
 
   def show
     @bean = Bean.find(params[:id])
-    @bean_reviews = @bean.reviews
+    @reviews = @bean.reviews.paginate(page: params[:page], order: 'updated_at DESC')
   end
 
   def new

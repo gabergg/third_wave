@@ -26,7 +26,7 @@ class RoastersController < ApplicationController
 
   def show
     @roaster = Roaster.find(params[:id])
-    @roaster_beans = @roaster.beans
+    @beans = @roaster.beans.paginate(page: params[:page], order: 'avg_rating DESC')
   end
 
   def new

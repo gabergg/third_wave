@@ -1,36 +1,45 @@
 <% provide(:title, 'Reviews') %>
-<div class="row-fluid">
-  <div class="text-center col-md-3 col-md-offset-4">
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3">
     <h1 class="page_header"><%= @user.name %></h1>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <% @reviews.each do |review| %>
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3">
-              <%= image_tag "placeholder.png" %>
+<% if @reviews.any? %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <% @reviews.each do |review| %>
+            <div class="card">
+              <div class="row">
+                <div class="col-md-3">
+                  <%= image_tag "placeholder.png" %>
+                </div>
+                <div class="col-md-3">
+                  <span class="card-element"><%= link_to review.bean.name, review.bean %></span>
+                  <span class="card-element"><%= link_to review.bean.roaster.name, review.bean.roaster %></span>
+                  <span class="card-element"><%= review.bean.origin %></span>
+                </div>
+                <div class="col-md-6">
+                  <span class="card-element">Rating:&nbsp;&nbsp;&nbsp;<%= review.rating %></span><br>
+                  <span class="card-element">Description:&nbsp;&nbsp;&nbsp;<%= review.description %></span><br>
+                  <% if current_user && current_user.admin? %>
+                      <%= link_to "Remove", review, method: :delete, data: {confirm: "Are you sure?"} %>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <div class="col-md-3">
-              <span class="card-element"><%= link_to review.bean.name, review.bean %></span>
-              <span class="card-element"><%= link_to review.bean.roaster.name, review.bean.roaster %></span>
-              <span class="card-element"><%= review.bean.origin %></span>
-            </div>
-            <div class="col-md-6">
-              <span class="card-element">Rating:&nbsp;&nbsp;&nbsp;<%= review.rating %></span><br>
-              <span class="card-element">Description:&nbsp;&nbsp;&nbsp;<%= review.description %></span><br>
-              <% if current_user && current_user.admin? %>
-                  <%= link_to "Remove", review, method: :delete, data: {confirm: "Are you sure?"} %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-    <% end %>
-  </div>
-</div>
+        <% end %>
+      </div>
+    </div>
 
-<div class="row text-center">
-  <%= will_paginate @reviews %>
-</div>
+    <div class="row text-center">
+      <%= will_paginate @reviews %>
+    </div>
+
+<% else %>
+    
+    <div class="row text-center">
+      <span><%= @user.name %> has no reviews yet.</span>
+    </div>
+
+<% end %>
