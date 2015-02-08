@@ -29,3 +29,13 @@
     <% end %>
   </div>
 </div>
+<script>
+    $(".need_slider").change(function () {
+        $form = $(this);
+        $input_value = $form.find("#review_rating").val();
+        $final_input = $input_value == 0 ? "None" : $input_value;
+        $final_input = $final_input == 0.5 ? '.5' : $final_input;
+        $label = $form.find("#review_rating").prev();
+        $label.text("Rating: " + $final_input);
+    });
+</script>

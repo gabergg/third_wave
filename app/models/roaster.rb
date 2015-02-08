@@ -8,12 +8,12 @@ class Roaster < ActiveRecord::Base
     if self[:avg_rating] == 0
       "None"
     else
-      self[:avg_rating]
+      self[:avg_rating].round(2)
     end
   end
 
   def avg_rating_num
-    self[:avg_rating]
+    self[:avg_rating].round(2)
   end
 
   scope :name_like, -> (name) { where("name ilike ?", "%#{name}%") }

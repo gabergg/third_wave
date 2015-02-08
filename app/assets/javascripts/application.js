@@ -49,6 +49,7 @@ function init_auto_complete() {
     });
 }
 
+/*
 $(function () {
     $(".need_slider").change(function () {
         $form = $(this);
@@ -57,4 +58,4 @@ $(function () {
         $label = $form.find("#review_rating").prev();
         $label.text("Rating: " + $final_input);
     });
-});
+});*/

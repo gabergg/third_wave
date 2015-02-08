@@ -6,13 +6,7 @@
     <%= form_for @review, :html => {:class => 'need_slider'} do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <% if !@review.rating.is_a?(String) && @review.rating.round(1) == @review.rating %>
-            <% printed_rating = @review.rating.round(0) %>
-        <% else %>
-            <% printed_rating = @review.rating %>
-        <% end %>
-
-        <%= f.label :rating, "Rating: " + printed_rating.to_s %>
+        <%= f.label :rating, "Rating: " + @review.rating.to_s %>
         <%= f.range_field :rating, in: 0..5, step: '.5', value: @review.rating != "None" ? @review.rating : 0 %>
 
         <%= f.label :brew_method %>
@@ -32,9 +26,10 @@
 <script>
     $(".need_slider").change(function () {
         $form = $(this);
-        $input_value = $form.children("#review_rating").val();
+        $input_value = $form.find("#review_rating").val();
         $final_input = $input_value == 0 ? "None" : $input_value;
-        $label = $form.children("#review_rating").prev();
+        $final_input = $final_input == 0.5 ? '.5' : $final_input;
+        $label = $form.find("#review_rating").prev();
         $label.text("Rating: " + $final_input);
     });
 </script>

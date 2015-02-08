@@ -13,6 +13,10 @@ class Review < ActiveRecord::Base
   def rating
     if self[:rating] == 0
       "None"
+    elsif self[:rating] == 0.5
+      ".5"
+    elsif self[:rating] == self[:rating].round(1)
+      self[:rating].round(0)
     else
       self[:rating]
     end
