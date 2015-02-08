@@ -13,7 +13,7 @@
 body {
   color: #333333;
   font-family: 'Cabin', Helvetica, Arial, sans-serif;
-  background-image: url(/assets/background.jpg);
+  background-image: image-url('background.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -175,4 +175,8 @@ ul.nav a:link, a:visited {
 
 .plus_sign {
   border-radius: 50%;
+}
+
+.bean_heading{
+  display:inline;
 }
