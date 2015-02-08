@@ -4,7 +4,6 @@
   </div><span class="add_bean col-md-2 col-md-offset-1">
 <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
                class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
-
 </div>
 
 <div class="row">
@@ -12,17 +11,17 @@
     <%= render 'shared/new_bean_form' %>
     <script>if ($('.alert-error').text()) $('#new-bean-form').show()</script>
     <% @beans.each do |bean| %>
-        <div class="eachbean">
+        <div class="card">
           <div class="row">
             <div class="col-md-3">
               <%= image_tag "placeholder.png" %>
             </div>
             <div class="col-md-3">
               <ul>
-                <li><span class="bean"><%= link_to bean.name, bean %></span></li>
-                <li><span class="roaster"><%= link_to bean.roaster.name, bean.roaster %></span></li>
+                <li><span class="card-element"><%= link_to bean.name, bean %></span></li>
+                <li><span class="card-element"><%= link_to bean.roaster.name, bean.roaster %></span></li>
 
-                <li><span class="rate_button">
+                <li><span class="card-element">
                 <% if signed_in? %>
                     <%= link_to "Rate Bean", new_review_path(bean_id: bean.id) %>
                 <% end %>
@@ -34,16 +33,16 @@
               </ul>
             </div>
             <div class="col-md-6">
-              <span class="roast">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
-              <span class="origin">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
-              <span class="rating">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
+              <span class="card-element">Roast:&nbsp;&nbsp;&nbsp;<%= bean.roast %></span><br>
+              <span class="card-element">Origin:&nbsp;&nbsp;&nbsp;<%= bean.origin %></span><br>
+              <span class="card-element">Rating:&nbsp;&nbsp;&nbsp;<%= bean.avg_rating != "None" ? bean.avg_rating.round(2) : "None" %></span><br>
             </div>
           </div>
         </div>
     <% end %>
   </div>
 </div>
-<div class="row">
+<div class="row text-center">
   <%= will_paginate @beans %>
 </div>
 

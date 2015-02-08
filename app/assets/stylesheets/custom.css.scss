@@ -157,30 +157,20 @@ ul.nav a:link, a:visited {
   right: 0;
 }
 
-.roast, .origin,
-.roaster_avgrating, .roaster_description{
-  margin-top:10px;
+.card-element {
   display: inline-block;
-  //border:2px solid #e6e6e6;
-  //border-radius: 10px;
-  padding: 7px;
-  /*-webkit-box-sizing: border-box; *//* Safari/Chrome, other WebKit *//*
-  -moz-box-sizing: border-box;    *//* Firefox, other Gecko *//*
-  box-sizing: border-box;         *//* Opera/IE 8+ */
+  padding: 10px;
   width: 100%;
 }
 
-.rating, .roaster_description{
-  margin-top:10px;
-  display: inline-block;
-  //border:2px solid #e6e6e6;
-  //border-radius: 10px;
-  padding: 7px;
-  /*-webkit-box-sizing: border-box; *//* Safari/Chrome, other WebKit *//*
-  -moz-box-sizing: border-box;    *//* Firefox, other Gecko *//*
-  box-sizing: border-box;         *//* Opera/IE 8+ */
-  width: 100%;
-  margin-bottom: 2em;
+.card {
+  margin: 2em;
+  border-radius: 10px;
+  border-bottom: 2px solid rgba(204, 204, 204, .7);
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */;
+  padding: 16px;
+  background-color: #fff;
 }
 
 .plus_sign {

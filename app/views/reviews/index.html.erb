@@ -2,36 +2,31 @@
 <h1>The Ol' Bean Feed</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <table>
-      <tr>
-        <th>Reviewer</th>
-        <th>Roaster</th>
-        <th>Bean</th>
-        <th>Origin</th>
-        <th>Rating</th>
-        <th>Description</th>
-        <th></th>
-        <th></th>
-      </tr>
-
-      <% @reviews.each do |review| %>
-          <tr>
-            <td><%= link_to review.user.name, review.user %></td>
-            <td><%= link_to review.bean.roaster.name, review.bean.roaster %></td>
-            <td><%= link_to review.bean.name, review.bean %></td>
-            <td><%= review.bean.origin %></td>
-            <td><%= review.rating %></td>
-            <td><%= review.description %></td>
-            <td><%= link_to "Full review", review %></td>
-            <% if current_user && current_user.admin? %>
-                <td><%= link_to "Remove", bean, method: :delete, data: {confirm: "Are you sure?"} %></td>
-            <% end %>
-          </tr>
-      <% end %>
-    </table>
-    <%= will_paginate @reviews %>
-
+  <div class="col-md-8 col-md-offset-2">
+    <% @reviews.each do |review| %>
+        <div class="card">
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag "placeholder.png" %>
+            </div>
+            <div class="col-md-3">
+              <span class="card-element"><%= link_to review.bean.name, review.bean %></span>
+              <span class="card-element"><%= link_to review.bean.roaster.name, review.bean.roaster %></span>
+              <span class="card-element"><%= link_to review.user.name, review.user %></span>
+              <span class="card-element"><%= review.bean.origin %></span>
+            </div>
+            <div class="col-md-6">
+              <span class="card-element">Rating:&nbsp;&nbsp;&nbsp;<%= review.rating %></span><br>
+              <span class="card-element">Description:&nbsp;&nbsp;&nbsp;<%= review.description %></span><br>
+              <% if current_user && current_user.admin? %>
+                  <%= link_to "Remove", review, method: :delete, data: {confirm: "Are you sure?"} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    <% end %>
   </div>
-
+</div>
+<div class="row text-center">
+  <%= will_paginate @reviews %>
 </div>

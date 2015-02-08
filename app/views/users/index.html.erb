@@ -1,10 +1,29 @@
 <% provide(:title, 'Users') %>
-<div>
-  <% @users.each do |user| %>
-      <ul>
-        <li><%= link_to user.name, user %></li>
-        <li><%= user.reviews.count %></li>
-      </ul>
-  <% end %>
-  <!-- Let's have a list of users, sorted desc by number of reviews -->
+<div class="row-fluid">
+  <div class="text-center col-md-3 col-md-offset-4"><h1 class="beanheading">Users</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% @users.each do |user| %>
+        <div class="card">
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag "placeholder.png" %>
+            </div>
+
+            <div class="col-md-3">
+              <span class="card-element"><%= link_to user.name, user %></span>
+            </div>
+
+            <div class="col-md-6">
+              <span class="card-element">Number of Reviews: &nbsp;&nbsp;&nbsp;<%= user.reviews.count %></span><br>
+              <span class="card-element">Last Activity: &nbsp;&nbsp;&nbsp;<%= User.find(7).reviews.first.updated_at %></span><br>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <!-- Let's have a list of users, sorted desc by number of reviews -->
+  </div>
 </div>
