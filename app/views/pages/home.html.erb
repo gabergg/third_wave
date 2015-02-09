@@ -1,19 +1,15 @@
 <% provide(:title, "") %>
 
-<div class="row text-center">
-  <%= render 'shared/search_bar' %>
-</div>
-<br><br>
 
 <% if !signed_in? %>
     <div class="row">
-      <div class="text-center">
-        <h1>Welcome to Third Wave!</h1>
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h1><strong>FIND GOOD COFFEE</strong></h1>
 
-        <h2>
-          Third Wave is a coffee yumyum by Gabe and Jenn.
-        </h2>
-
+        <h3> From beans to roasters. </h3><br>
+          <div class="row text-center">
+            <%= render 'shared/search_bar' %>
+          </div> <br><br>
         <%= link_to "Sign up now!", signup_path,
                     class: "btn btn-large btn-primary" %>
       </div>

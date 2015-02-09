@@ -1,10 +1,10 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Third Wave", root_path, id: "logo_text" %>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <div class="navbar-header">
+        <%= link_to "Third Wave", root_path, id: "logo_text navbar-brand" %>
+      </div>
+    <div id="navbar" class="navbar-collapse collapse col-md-9 col-md-push-4">
+      <ul class="nav navbar-nav ">
         <li><%= link_to "Feed", reviews_path %></li>
         <li><%= link_to "Beans", beans_path %></li>
         <li><%= link_to "Roasters", roasters_path %></li>
@@ -25,11 +25,12 @@
         <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
         <% end %>
+        <div class="col-xs-6 col-sm-3">
+          <li><%= render 'shared/search_bar' %></li>
+        </div>
       </ul>
       <br><br>
-      <ul class="nav navbar-nav navbar-right">
-        <li> <%= render 'shared/search_bar' %></li>
-      </ul>
+      
     </div>
   </div>
 </nav>

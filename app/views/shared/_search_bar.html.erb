@@ -3,6 +3,22 @@
 <%#= f.text_field :query_param, data: {autocomplete_roaster_source: '/roastersearch'} %>
 
 <%= form_tag('/completesearch', :method => "get") do %>
-    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search bean, roaster, user", class: "search" %>
-    <%= submit_tag "Search", :name => nil %>
+	<div class="input-group">
+	    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search bean, roaster, user", class: "search form-control" %>
+	    <!--<%= submit_tag "Search", :name => nil %>!-->
+	     <span class="input-group-btn">
+		    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+				 <i class="glyphicon glyphicon-search"></i>
+			<% end %>
+		</span>
+	</div>
+<!-- HTML implementation
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search bean, roaster, user">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div><!-- /input-group -->
+
+
 <% end %>
