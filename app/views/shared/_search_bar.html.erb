@@ -1,17 +1,24 @@
 
 
 <%#= f.text_field :query_param, data: {autocomplete_roaster_source: '/roastersearch'} %>
+<div class="row">
+	<div class="col-lg-6">
+    	<div class="input-group">
+			<!--
+				//need to reimplement form_tag
+			<%= form_tag('/completesearch', :method => "get", class: "navbar-form", role:"search") do %>!-->
+				    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search bean, roaster, user", class: " form-control" %>
 
-<%= form_tag('/completesearch', :method => "get") do %>
-	<div class="input-group">
-	    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search bean, roaster, user", class: "search form-control" %>
-	    <!--<%= submit_tag "Search", :name => nil %>!-->
-	     <span class="input-group-btn">
-		    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-				 <i class="glyphicon glyphicon-search"></i>
+		    <!--<%= submit_tag "Search", :name => nil %>!-->
+		     <span class="input-group-btn">
+			    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+					 <i class="glyphicon glyphicon-search"></i>
+				<% end %>
+			</span>
 			<% end %>
-		</span>
-	</div>
+		</div>	
+	</div>			
+</div>	
 <!-- HTML implementation
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search bean, roaster, user">
@@ -21,4 +28,3 @@
     </div><!-- /input-group -->
 
 
-<% end %>
