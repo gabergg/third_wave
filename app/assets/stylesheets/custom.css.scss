@@ -63,16 +63,35 @@ p {
 
 /* header */
 
-/* nav bad */
+/* nav bar */
 .nav {
-  margin-top: 1.5em;
+ 
 }
 
 .navbar .nav > li > a {
-  padding: 0 15px 10px;
   font-family: 'Vollkorn', Georgia, Times, serif;
   font-weight: 700 !important;
+}
+.navbar-collapse{
+  float:left;
+  display:inline-block;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  text-align:center;
+}
+.navbar-header{
+ 
+  //padding-left:50px;
+  display:inline-block;
+}
 
+#logo_text{
+  margin-left:100px;
+}
+.navbar .navbar-collapse {
+  text-align: center;
+  float:left;
 }
 
 ul {
@@ -82,7 +101,7 @@ ul {
 }
 
 ul.nav a:link, a:visited {
-  display: block;
+  display: inline;
   //width: 130px;
   font-weight: bold;
   text-align: center;
@@ -179,4 +198,7 @@ ul.nav a:link, a:visited {
 
 .bean_heading{
   display:inline;
+}
+.search {
+  width: 40%;
 }
