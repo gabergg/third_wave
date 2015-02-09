@@ -64,6 +64,15 @@ p {
 /* header */
 
 /* nav bar */
+
+.navbar {
+  height: 70px;
+}
+
+.navbar-header, .navbar-nav{
+  padding-top:20px;
+}
+/*
 .nav {
  
 }
@@ -85,7 +94,7 @@ p {
   //padding-left:50px;
   display:inline-block;
 }
-
+*/
 #logo_text{
   margin-left:100px;
 }
@@ -199,6 +208,7 @@ ul.nav a:link, a:visited {
 .bean_heading{
   display:inline;
 }
-.search {
-  width: 40%;
+.form-control {
+  height:auto;
+  width: 100%;
 }
