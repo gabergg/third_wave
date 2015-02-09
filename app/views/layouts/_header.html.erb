@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-11 col-md-offset-1">
-        <div class="navbar-header col-md-2" >
-          <span style="margin-left:10px;"><img alt="Third" src="..."></span>
+        <div class="navbar-header col-md-3" >
+          <span style="margin-left:50px;"><img alt="Third" src="..."></span>
             <%= link_to "Third Wave", root_path, id: "navbar-brand" %>
             
         </div>
@@ -28,7 +28,7 @@
             <% else %>
                 <li><%= link_to "Sign in", signin_path %></li>
             <% end %>
-            <div class="col-md-7">
+            <div class="col-md-7" style="margin-top:-7px;">
               <li><%= render 'shared/search_bar' %></li>
             </div>
           </ul>
