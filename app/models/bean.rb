@@ -20,7 +20,7 @@ class Bean < ActiveRecord::Base
     if self[:avg_rating] == 0
       "None"
     else
-      self[:avg_rating]
+      self[:avg_rating].round(2)
     end
   end
 

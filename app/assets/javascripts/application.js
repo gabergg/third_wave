@@ -16,23 +16,23 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$.widget( "custom.catcomplete", $.ui.autocomplete, {
-    _create: function() {
+$.widget("custom.catcomplete", $.ui.autocomplete, {
+    _create: function () {
         this._super();
-        this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+        this.widget().menu("option", "items", "> :not(.ui-autocomplete-category)");
     },
-    _renderMenu: function( ul, items ) {
+    _renderMenu: function (ul, items) {
         var that = this,
             currentCategory = "";
-        $.each( items, function( index, item ) {
+        $.each(items, function (index, item) {
             var li;
-            if ( item.category != currentCategory ) {
-                ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+            if (item.category != currentCategory) {
+                ul.append("<li class='ui-autocomplete-category'>" + item.category + "</li>");
                 currentCategory = item.category;
             }
-            li = that._renderItemData( ul, item );
-            if ( item.category ) {
-                li.attr( "aria-label", item.category + " : " + item.label );
+            li = that._renderItemData(ul, item);
+            if (item.category) {
+                li.attr("aria-label", item.category + " : " + item.label);
             }
         });
     }
@@ -40,21 +40,22 @@ $.widget( "custom.catcomplete", $.ui.autocomplete, {
 
 
 function init_auto_complete() {
-    $( ".search" ).catcomplete({
+    $(".search").catcomplete({
         delay: 0,
         source: $(".search").data('autocomplete-complete-source'),
-        select: function( event, ui ) {
+        select: function (event, ui) {
             window.location = ui.item.url;
         }
     });
 }
 
-function setSlider() {
+/*
+$(function () {
     $(".need_slider").change(function () {
         $form = $(this);
-        $input_value = $form.children("#review_rating").val();
+        $input_value = $form.find("#review_rating").val();
         $final_input = $input_value == 0 ? "None" : $input_value;
-        $label = $form.children("#review_rating").prev();
+        $label = $form.find("#review_rating").prev();
         $label.text("Rating: " + $final_input);
     });
-}
+});*/
