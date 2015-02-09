@@ -69,13 +69,19 @@ p {
   height: 70px;
 }
 
-.navbar-header, .navbar-nav{
+.navbar-header a , .navbar-header {
+  padding-top:20px;
+  font-size:20px;
+  font-weight:bold;
+  color: #55361A;
+  text-decoration: none;
+  padding-left:15px;
+}
+.navbar-nav {
   padding-top:20px;
 }
 /*
-.nav {
- 
-}
+
 
 .navbar .nav > li > a {
   font-family: 'Vollkorn', Georgia, Times, serif;
