@@ -62,7 +62,9 @@ p {
 }
 
 /* header */
-
+#navbar-container{
+  width:75%;
+}
 /* nav bar */
 
 .navbar {
@@ -191,4 +193,7 @@ ul.nav a:link, a:visited {
 .bean_heading{
   display:inline;
 }
-
+.input-group {
+  width:40%;
+  margin-top:-7px;
+}

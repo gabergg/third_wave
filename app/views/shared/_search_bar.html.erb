@@ -2,22 +2,18 @@
 
 <%#= f.text_field :query_param, data: {autocomplete_roaster_source: '/roastersearch'} %>
 <div class="row">
-	<div class="col-lg-6">
-    	
-			
-			<%= form_tag('/completesearch', :method => "get") do %>
-				<div class="input-group">
-				    <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search for beans, roasters, user", class: "search form-control" %>
 
-				     <span class="input-group-btn">
-					    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-							 <i class="glyphicon glyphicon-search"></i>
-						<% end %>
-					</span>
-				</div>	
-			<% end %>	
-		
-	</div>			
+      <%= form_tag('/completesearch', :method => "get") do %>
+        <div class="input-group">
+            <%= text_field_tag :search, params[:search], data: {autocomplete_complete_source: '/completesearch_auto'}, placeholder: "Search for beans, roasters, user", class: "search form-control" %>
+
+             <span class="input-group-btn">
+              <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+               <i class="glyphicon glyphicon-search"></i>
+            <% end %>
+          </span>
+        </div>  
+      <% end %>    
 </div>
 
 
