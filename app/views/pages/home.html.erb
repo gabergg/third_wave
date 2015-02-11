@@ -4,20 +4,34 @@
 <% if !signed_in? %>
     <div class="row">
       <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <h1><strong>FIND GOOD COFFEE</strong></h1>
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <h1><strong>FIND GOOD COFFEE</strong></h1>
 
-        <h3> From beans to roasters. </h3><br>
-      </div>
-      <div class="col-md-10" style="margin-left: 33%;">
+          <h3> From beans to roasters. </h3><br>
+        </div>
+        <div class="col-md-10" style="margin-left: 33%;">
           <div class="text-center">
             <%= render 'shared/search_bar' %>
-          </div> <br><br>
-      </div>
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <%= link_to "Sign up now!", signup_path,
-                    class: "btn btn-large btn-primary" %>
+          </div>
+          <br><br>
+        </div>
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <%= link_to "Sign up now!", signup_path,
+                      class: "btn btn-large btn-primary" %>
+        </div>
       </div>
     </div>
-  </div>
+
+
+<% else %>
+
+    <div class="row">
+      <div class="col-md-10" style="margin-left: 33%;">
+        <div class="text-center">
+          <%= render 'shared/search_bar' %>
+        </div>
+        <br><br>
+      </div>
+    </div>
+
 <% end %>
