@@ -1,16 +1,30 @@
 <% provide(:title, 'Roasters') %>
-<div class="row-fluid">
-  <div class="text-center col-md-3 col-md-offset-4"><h1 class="page_header">Roasters</h1>
-  </div><span class="add_bean col-md-2 col-md-offset-1">
-<%= button_tag "Add a roaster", type: "button", onclick: "$('#new-roaster-form').toggle()",
-               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
+
+<div class="row">
+  <div class="col-sm-11">
+    <div class="col-md-5 col-md-offset-4">
+      <h1>Roasters</h1>
+
+      <div id="new-roaster-form" style="display: none;">
+        <%= render 'shared/new_roaster_form' %>
+      </div>
+      <script>if ($('.alert-error').text()) $('#new-roaster-form').show()</script>
+
+    </div>
+    <div class="col-md-1">
+      <span class="add_bean">
+        <%= button_tag "Add a roaster", type: "button", onclick: "$('#new-roaster-form').toggle()",
+                       class: "btn plus-sign-container" do %>
+            <i class="plus_sign glyphicon glyphicon-plus"></i>
+        <% end %>
+      </span>
+    </div>
+  </div>
 </div>
 
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= render 'shared/new_roaster_form' %>
-    <script>if ($('.alert-error').text()) $('#new-roaster-form').show()</script>
     <% @roasters.each do |roaster| %>
         <div class="card">
           <div class="row">

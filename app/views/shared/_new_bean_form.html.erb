@@ -1,30 +1,26 @@
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
-    <div id="new-bean-form" style="display: none;">
-      <%= form_for @bean, :html => {:role => 'form'} do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
+<div id="new-bean-form" style="display: none;">
+  <%= form_for @bean, :html => {:role => 'form'} do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-          <div class="form-group">
-            <%= f.label :roaster_name, "Roaster" %>
-            <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'}, :class => 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name, :class => 'form-control' %>
-          </div>
+      <div class="form-group">
+        <%= f.label :roaster_name, "Roaster" %>
+        <%= f.text_field :roaster_name, data: {autocomplete_roaster_source: '/roastersearch'}, :class => 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
 
-          <div class="form-group">
-            <%= f.label :roast, "Roast level" %>
-            <%= f.text_field :roast, :class => 'form-control' %>
-          </div>
+      <div class="form-group">
+        <%= f.label :roast, "Roast level" %>
+        <%= f.text_field :roast, :class => 'form-control' %>
+      </div>
 
-          <div class="form-group">
-            <%= f.label :origin %>
-            <%= f.text_field :origin, :class => 'form-control' %>
-          </div>
+      <div class="form-group">
+        <%= f.label :origin %>
+        <%= f.text_field :origin, :class => 'form-control' %>
+      </div>
 
-          <%= f.submit "Submit Bean", class: "btn" %>
-      <% end %>
-    </div>
-  </div>
+      <%= f.submit "Submit Bean", class: "btn" %>
+  <% end %>
 </div>

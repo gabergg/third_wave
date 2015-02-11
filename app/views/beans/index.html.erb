@@ -1,15 +1,29 @@
 <% provide(:title, 'Beans') %>
-<div class="row-fluid">
-  <div class="text-center col-md-3 col-md-offset-4"><h1 class="page_header">Beans</h1>
-  </div><span class="add_bean col-md-2 col-md-offset-1">
-<%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
-               class: "btn" do %><i class="plus_sign glyphicon glyphicon-plus"></i><% end %></span>
+
+<div class="row">
+  <div class="col-sm-11">
+    <div class="col-md-5 col-md-offset-4">
+      <h1>Beans</h1>
+
+      <div id="new-bean-form" style="display: none;">
+        <%= render 'shared/new_bean_form' %>
+      </div>
+      <script>if ($('.alert-error').text()) $('#new-bean-form').show()</script>
+
+    </div>
+    <div class="col-md-1">
+      <span class="add_bean">
+        <%= button_tag "Add a bean", type: "button", onclick: "$('#new-bean-form').toggle()",
+                       class: "btn plus-sign-container" do %>
+            <i class="plus_sign glyphicon glyphicon-plus"></i>
+        <% end %>
+        </span>
+    </div>
+  </div>
 </div>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= render 'shared/new_bean_form' %>
-    <script>if ($('.alert-error').text()) $('#new-bean-form').show()</script>
     <% @beans.each do |bean| %>
         <div class="card">
           <div class="row">
