@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def index
-    @reviews = Review.paginate(page: params[:page],order: 'created_at DESC')
+    @reviews = Review.paginate(page: params[:page], order: 'created_at DESC')
   end
 
   def create
